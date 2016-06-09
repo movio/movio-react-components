@@ -4,14 +4,15 @@
   "description": "Movio's React Component Lib",
   "scripts": {
     "start": "webpack-dev-server --hot --inline --progress --colors --host 0.0.0.0",
-    "build": "webpack --progress --colors",
-    "test": "karma start --single-run",
+    "test": "karma start --single-run; exit 0",
     "test:watch": "karma start --auto-watch",
-    "lint": "eslint src test",
+    "lint": "eslint src test; exit 0",
     "format": "eslint src test --fix; exit 0",
+    "lint:style": "./node_modules/.bin/stylelint src/**/*.css; exit 0",
     "check": "npm run lint && npm run test",
-    "ui:start": "node ./node_modules/ui-harness/start",
-    "ui:build": "node ./node_modules/ui-harness/build"
+    "docs": "./node_modules/.bin/jsdoc -c jsdoc.conf.json ./src/components",
+    "serve:docs": "http-server ./docs -o -p 8081",
+    "serve:coverage": "http-server ./coverage/report -o -p 8082"
   },
   "repository": {
     "type": "git",
@@ -30,41 +31,65 @@
     {
       "name": "Raghuvir Kasturi",
       "url": "https://github.com/d4ncer"
+    },
+    {
+      "name": "Wasiq Kashkari",
+      "url": "https://github.com/qisaw"
     }
   ],
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-eslint": "^6.0.4",
+    "babel-istanbul-loader": "^0.1.0",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.9.1",
-    "babel-preset-movio": "^1.0.2",
+    "babel-preset-movio": "^1.2.1",
     "babel-runtime": "^6.9.2",
+    "carte-blanche": "^0.1.3",
+    "carte-blanche-react-plugin": "^0.1.3",
+    "carte-blanche-source-plugin": "^0.1.0",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
+    "cssrecipes-defaults": "^0.5.0",
+    "enzyme": "^2.3.0",
     "eslint": "^2.11.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-import-resolver-webpack": "^0.2.5",
-    "eslint-loader": "^1.3.0",
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "5.1.1",
-    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.19.0",
+    "http-server": "^0.9.0",
+    "ink-docstrap": "^1.2.1",
+    "jsdoc": "^3.4.0",
+    "json-loader": "^0.5.4",
     "karma": "^0.13.22",
+    "karma-babel-preprocessor": "^6.0.1",
     "karma-chai": "^0.1.0",
+    "karma-coverage": "^1.0.0",
     "karma-mocha": "^1.0.1",
+    "karma-mocha-reporter": "^2.0.3",
     "karma-phantomjs-launcher": "^1.0.0",
-    "karma-phantomjs-shim": "^1.4.0",
+    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.5.3",
     "phantomjs-prebuilt": "^2.1.7",
-    "ui-harness": "^3.9.4",
+    "postcss-cssnext": "^2.6.0",
+    "postcss-import": "^8.1.2",
+    "postcss-loader": "^0.9.1",
+    "postcss-reporter": "^1.3.3",
+    "react-addons-test-utils": "^15.1.0",
+    "react-hot-loader": "^1.3.0",
+    "rucksack-css": "^0.8.6",
+    "style-loader": "^0.13.1",
+    "stylelint": "^6.5.1",
+    "stylelint-config-standard": "^8.0.0",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1",
-    "webpack-hot-middleware": "^2.10.0"
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "react": "^15.1.0",
-    "react-hot-loader": "^1.3.0"
+    "react-dom": "^15.1.0"
   }
 }

@@ -1,0 +1,23 @@
+@import '../../styles/variables.css';
+
+:root {
+  --spacing: 10px 10px;
+  --bg-color: var(--color-astronaut-blue);
+}
+
+.button-wrapper {
+  border: 0;
+  outline: 0;
+}
+
+.button {
+  border: 0;
+  outline: 0;
+  padding: 1rem 1.5rem;
+  color: white;
+  background: var(--color-astronaut-blue);
+
+  @nest &:hover {
+    cursor: pointer;
+  }
+}

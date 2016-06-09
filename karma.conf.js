@@ -1,8 +1,5 @@
-var path = require('path');
-var webpackConfig = require('./webpack.config.js');
-var entry = path.resolve(webpackConfig.context, webpackConfig.entry.jsx);
-var preprocessors = {};
-preprocessors[entry] = ['webpack'];
+const path = require('path');
+const webpackKarmaConfig = require('./webpack.karma.js');
 
 module.exports = function(config) {
   config.set({
@@ -15,15 +12,20 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: [
       'mocha',
-      'chai',
-      'phantomjs-shim'
+      'chai'
     ],
 
 
     // list of files / patterns to load in the browser
     // files: [entry],
     files: ['**/*.spec.js'],
-    webpack: webpackConfig,
+    webpack: webpackKarmaConfig,
+
+    // Don't spam console when running tests
+    webpackMiddleware: {
+      noInfo: true,
+      quiet: true
+    },
 
 
     // list of files to exclude
@@ -35,14 +37,14 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     // preprocessors: preprocessors,
     preprocessors: {
-      '**/*.spec.js': ['webpack']
+      '**/*.spec.js': ['webpack', 'sourcemap']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['mocha', 'coverage'],
 
 
     // web server port
@@ -68,11 +70,26 @@ module.exports = function(config) {
     concurrency: Infinity,
 
     plugins: [
-      require('karma-webpack'),
-      'karma-chai',
+      'karma-webpack',
       'karma-mocha',
+      'karma-chai',
+      'karma-sourcemap-loader',
       'karma-phantomjs-launcher',
-      'karma-phantomjs-shim'
-    ]
+      'karma-mocha-reporter',
+      'karma-coverage',
+    ],
+
+    coverageReporter: {
+      type : 'html',
+      dir : '../coverage/',
+      subdir: 'report'
+    },
+
+    // Babel preprocessor
+    babelPreprocessor: {
+      options: {
+        presets: ['movio']
+      }
+    }
   })
-}
+};
