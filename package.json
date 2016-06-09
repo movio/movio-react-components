@@ -5,11 +5,14 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline --progress --colors --host 0.0.0.0",
     "test": "karma start --single-run; exit 0",
+    "test:ci": "karma start --single-run",
     "test:watch": "karma start --auto-watch",
     "lint": "eslint src test; exit 0",
-    "format": "eslint src test --fix; exit 0",
+    "lint:ci": "eslint src",
+    "format": "eslint src --fix; exit 0",
     "lint:style": "./node_modules/.bin/stylelint src/**/*.css; exit 0",
-    "check": "npm run lint && npm run test",
+    "lint:style:ci": "./node_modules/.bin/stylelint src/**/*.css",
+    "check": "npm run lint:ci && npm run lint:style:ci && npm run test:ci",
     "docs": "./node_modules/.bin/jsdoc -c jsdoc.conf.json ./src/components",
     "serve:docs": "http-server ./docs -o -p 8081",
     "serve:coverage": "http-server ./coverage/report -o -p 8082"
