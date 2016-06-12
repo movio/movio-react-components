@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+
 import styles from './button.css';
 
 /**
@@ -6,7 +7,9 @@ import styles from './button.css';
  */
 
 /**
+ * Button Component
  * @class
+ * @version 0.1
  */
 const Button = (props) => {
   const className = props.className ? `${props.className} ${styles.button}` : styles.button;
@@ -40,3 +43,7 @@ Button.propTypes = {
 };
 
 export default Button;
+
+export {
+  styles,
+};

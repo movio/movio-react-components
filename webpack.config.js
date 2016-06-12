@@ -7,8 +7,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // PostCSS plugins
 const postCSSImport = require('postcss-import');
 const postCSSNext = require('postcss-cssnext');
-const postCSSRucksack = require('rucksack-css');
 const postCSSReporter = require('postcss-reporter');
+const rucksack = require('rucksack-css');
+const cssnano = require('cssnano');
 
 const ROOT_PATH = path.resolve(__dirname);
 
@@ -30,7 +31,7 @@ module.exports = {
       },{
         test: /\.css$/,
         exclude: /node_modules/,
-        loaders: ['style', 'css?modules&camelCase&importLoaders=1', 'postcss'],
+        loaders: ['style', 'css?sourceMap&-minimize&camelCase&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'postcss'],
       }, {
         test: /\.json$/,
         loader: 'json',
@@ -44,9 +45,21 @@ module.exports = {
     return [
       postCSSImport({
         addDependencyTo: webpack,
+        path: ['./src/styles']
       }),
       postCSSNext(),
-      postCSSRucksack(),
+      rucksack(),
+      cssnano({
+        autoprefixer: false,
+        discardComments: {
+          removeAll: true
+        },
+        discardUnused: false,
+        mergeIdents: false,
+        reduceIdents: false,
+        safe: true,
+        sourcemap: true
+      }),
       postCSSReporter(),
     ]
   },

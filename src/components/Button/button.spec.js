@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Button from './index';
-import styles from './button.css';
 import { expect } from 'chai';
+import { shallow } from 'enzyme';
+
+import Button, { styles } from './index';
 
 const noop = () => {};
 
@@ -22,7 +22,7 @@ describe('<Button />', () => {
     expect(wrapper.childAt(0).prop('className')).to.equal(styles.button);
   });
 
-  it('shoud add an onClick handler to the button', () => {
+  it('should add an onClick handler to the button', () => {
     const wrapper = shallow(<Button onClick={noop}>Button</Button>);
     expect(wrapper.childAt(0).prop('onClick')).to.equal(noop);
   });

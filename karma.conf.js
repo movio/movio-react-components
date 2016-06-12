@@ -1,5 +1,5 @@
 const path = require('path');
-const webpackKarmaConfig = require('./webpack.karma.js');
+const postCSSImport = require('postcss-import');
 
 module.exports = function(config) {
   config.set({
@@ -19,7 +19,48 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     // files: [entry],
     files: ['**/*.spec.js'],
-    webpack: webpackKarmaConfig,
+    webpack: {
+      devtool: 'cheap-module-source-map',
+      module: {
+        preLoaders: [
+          {
+            test: /.*[^.spec].(js|jsx)$/,
+            exclude: /node_modules/,
+            loader: 'babel-istanbul',
+            query: {
+              cacheDirectory: true,
+            }
+          },{
+            test: /.spec.js$/,
+            exclude: /node_modules/,
+            loaders: ['babel'],
+          }
+        ],
+        loaders: [
+          {
+            test: /\.css$/,
+            exclude: /node_modules/,
+            loaders: ['style', 'css?sourceMap&-minimize&camelCase&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'postcss'],
+          }, {
+            test: /\.json$/,
+            loader: 'json',
+          },
+        ]
+      },
+      postcss: (webpack) => {
+        return [
+          postCSSImport({
+            addDependencyTo: webpack,
+            path: ['./src/styles'],
+          }),
+        ]
+      },
+      externals: {
+        'react/addons': true,
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
+      }
+    },
 
     // Don't spam console when running tests
     webpackMiddleware: {
@@ -84,12 +125,6 @@ module.exports = function(config) {
       dir : '../coverage/',
       subdir: 'report'
     },
-
-    // Babel preprocessor
-    babelPreprocessor: {
-      options: {
-        presets: ['movio']
-      }
-    }
+    
   })
 };
