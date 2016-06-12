@@ -1,0 +1,23 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "includePattern": ".+\\.js$",
+    "excludePattern": ".+\\.spec.js"
+  },
+  "plugins": [],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true
+    }
+  },
+  "opts": {
+    "recurse": true,
+    "template": "./node_modules/ink-docstrap/template",
+    "readme": "./README.md",
+    "destination": "./docs"
+  }
+}

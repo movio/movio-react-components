@@ -3,3 +3,5 @@ node_modules
 static
 .module-cache
 *.log*
+coverage
+docs

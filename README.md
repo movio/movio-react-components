@@ -1,17 +1,39 @@
+
 [![Build Status](https://travis-ci.org/movio/movio-react-components.svg?branch=master)](https://travis-ci.org/movio/movio-react-components)
 
 # Movio React Components
-Work in progress
+Component library for Movio Components built on [carte-blanche](https://github.com/carteb/carte-blanche).
 
 ## Get Started
+Install project dependencies and start local server:
+```bash
+$ npm install
+$ npm start
+```
+View at [http://localhost:8080/carte-blanche](http://localhost:8080/carte-blanche)
 
-    > npm run ui:start
+## Documentation
+Documentation for the components can be generated and viewed using:
 
-View at http://localhost:3030
+```bash
+# Generate docs
+$ npm run docs
 
-## TODO
+# Serve docs (at http://localhost:8081)
+$ npm run serve:docs
+```
 
-* eslint
-* packaging
-* tests
+## Tests
+Run unit tests using:
+```bash
+# Single run
+$ npm test
 
+# Auto watch
+$ npm run test:watch
+```
+Coverage reports are available using:
+```bash
+# Served at http://localhost:8082
+$ npm run serve:coverage
+```
