@@ -1,25 +1,47 @@
-@import 'variables.css';
+@import "variables.css";
 
 :root {
   --spacing: 10px 10px;
-  --bg-color: var(--color-primary);
-}
+  --color-bg: var(--color-primary);
+  --color-hover: var(--color-primary-light);
+  --font: var(--font-primary);
+  --color-text-disabled: var(--color-neutral-b);
+  --color-bg-disabled: var(--color-neutral-d);
 
-.button-wrapper {
-  border: 0;
-  outline: 0;
+  --color-bg-secondary: var(--color-primary-c);
+  --color-bg-secondary-hover: var(--color-primary-d);
 }
 
 .button {
-  border: 0;
-  outline: 0;
-  padding: 1rem 1.5rem;
+  font-family: var(--font);
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  padding: 0 0.875rem;
+  line-height: 2.286;
+  border-radius: var(--border-radius);
+  text-decoration: none;
   color: white;
-  background-color: var(--bg-color);
+  background-color: var(--color-bg);
   transition: 0.2s background-color ease-in-out;
 
   @nest &:hover {
     cursor: pointer;
-    background-color: color(var(--bg-color) b(+ 5%));
+    background-color: var(--color-hover);
+  }
+
+}
+
+.disabled {
+  background-color: var(--color-bg-disabled);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.secondary {
+  background-color: var(--color-bg-secondary);
+
+  @nest &:hover {
+    background-color: var(--color-bg-secondary-hover);
   }
 }

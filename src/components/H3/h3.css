@@ -1,0 +1,14 @@
+@import "variables.css";
+
+:root {
+  --secondary-color: var(--color-neutral-a);
+}
+
+.h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.secondary {
+  color: var(--secondary-color);
+}

@@ -1,0 +1,17 @@
+@import "variables.css";
+
+:root {
+  --color-bg: var(--color-neutral-2);
+  --color-text: var(--color-primary-d);
+}
+
+.container {
+  background: var(--color-bg);
+  color: white;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+
+.code {
+  color: var(--color-text);
+}

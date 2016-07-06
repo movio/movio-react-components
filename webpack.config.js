@@ -15,7 +15,7 @@ const ROOT_PATH = path.resolve(__dirname);
 
 module.exports = {
   debug: true,
-  entry: ['webpack-dev-server/client?http://localhost:3000/', 'webpack/hot/only-dev-server', path.resolve(ROOT_PATH, 'src')],
+  entry: [path.resolve(ROOT_PATH, 'src')],
   output: {
     publicPath: '/',
     path: path.resolve(ROOT_PATH, 'build.dev'),
@@ -47,7 +47,13 @@ module.exports = {
         addDependencyTo: webpack,
         path: ['./src/styles']
       }),
-      postCSSNext(),
+      postCSSNext({
+        features: {
+          rem: {
+            rootValue: '14px'
+          }
+        }
+      }),
       rucksack(),
       cssnano({
         autoprefixer: false,
@@ -65,16 +71,18 @@ module.exports = {
   },
   plugins: [
     new webpack.NoErrorsPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      inject: true,
+      inject: false,
       template: path.resolve(ROOT_PATH, 'src/index.html'),
     }),
-    new CarteBlanche({
-      componentRoot: 'src/components',
-      plugins: [
-        new ReactPlugin(),
-      ]
-    })
+    // new CarteBlanche({
+    //   componentRoot: 'src/components',
+    //   plugins: [
+    //     new ReactPlugin(),
+    //   ]
+    // })
   ],
+  devServer: {
+    quiet: true
+  }
 };

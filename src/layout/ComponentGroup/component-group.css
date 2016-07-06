@@ -1,0 +1,25 @@
+@import "variables.css";
+
+:root {
+  --color-separator: var(--color-neutral-f);
+  --block-max-width: 40rem;
+}
+
+.container {
+  width: 100%;
+  padding: 3.587rem 4.285rem;
+  border-bottom: 2px solid var(--color-separator);
+}
+
+.non-fw {
+  margin: 0 0.75rem 0.75rem 0;
+}
+
+.title {
+  margin: 0 0 2rem 0;
+}
+
+.block-type {
+  max-width: var(--block-max-width);
+}
+

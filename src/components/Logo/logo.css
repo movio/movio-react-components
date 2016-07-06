@@ -1,0 +1,10 @@
+@import "variables.css";
+
+.container {
+  width: 100%;
+  height: auto;
+}
+
+.svg {
+  fill: white;
+}

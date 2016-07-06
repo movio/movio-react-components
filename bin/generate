@@ -1,0 +1,124 @@
+#!/usr/bin/env node
+
+/**
+ * Generate scaffolding for a React component including:
+ * - Base component
+ * - Styles
+ * - Tests
+ *
+ * Usage:
+ * $ ./bin/generate Dropdown
+ */
+
+const path = require('path');
+const fs = require('fs');
+const argv = require('yargs').argv;
+const chalk = require('chalk');
+const { head, toLower, capitalize } = require('lodash');
+
+const calcRelPath = (pathName) => path.relative(path.resolve(__dirname, '..'), pathName);
+
+const generateStartLog = (componentName) => (
+  console.log(`${chalk.white.bgBlue.bold(' Generating ')} <${componentName}>`)
+);
+const createPathLog = (pathName) => console.log(`${chalk.green('created')} ${calcRelPath(pathName)}`);
+const generateEndLog = (componentName, pathName) => (
+  console.log(`${chalk.white.bgBlue.bold(' Created ')} <${componentName}> at ${chalk.green(calcRelPath(pathName))}`)
+);
+
+const COMPONENTS_ROOT = path.resolve(__dirname, '..', 'src', 'components');
+
+const name = head(argv._);
+const lowerCaseName = toLower(name);
+const capName = capitalize(name);
+
+const cssFileName = `${lowerCaseName}.css`;
+const cssContent = `@import "variables.css";
+
+.container {}
+`;
+
+const jsFileName = 'index.js';
+const jsContent = `import React, { PropTypes } from 'react';
+import classnames from 'classnames';
+
+import styles from './${lowerCaseName}.css';
+
+const ${capName} = ({ className, children }) =>
+  <div className={classnames(className, styles.container)}>
+    {children}
+  </div>;
+
+${capName}.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
+export default ${capName};
+export {
+  styles,
+};
+`;
+
+const jsSpecFileName = `${lowerCaseName}.spec.js`;
+const jsSpecContent = `import React from 'react';
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
+import { spy } from 'sinon';
+
+import ${capName}, { styles } from './index';
+
+const noop = () => {};
+describe('<${capName} />', () => {});
+`;
+
+const COMPONENT_ROOT = path.resolve(COMPONENTS_ROOT, capName);
+
+const makeDir = (dirName) => (
+  new Promise((resolve, reject) => {
+    fs.mkdir(dirName, (err, done) => {
+      if (err) {
+        return reject(err);
+      } else {
+        return resolve();
+      }
+    });
+  })
+);
+
+const writeComponentFile = (fileName, fileContent) => (
+  new Promise((resolve, reject) => {
+    fs.writeFile(path.resolve(COMPONENT_ROOT, fileName), fileContent, 'utf8', (err, done) => {
+      if (err) {
+        return reject(err);
+      } else {
+        createPathLog(path.resolve(COMPONENT_ROOT, fileName));
+        return resolve();
+      }
+    });
+  })
+);
+
+const makeComponentDirectory = makeDir(COMPONENT_ROOT);
+
+const writeJsFile = writeComponentFile(jsFileName, jsContent);
+const writeCssFile = writeComponentFile(cssFileName, cssContent);
+const writeJsSpecFile = writeComponentFile(jsSpecFileName, jsSpecContent);
+
+const generateComponent = () => {
+  generateStartLog(capName);
+  makeComponentDirectory
+    .then(() =>
+      Promise.all([
+        writeJsFile,
+        writeCssFile,
+        writeJsSpecFile,
+      ])
+    )
+    .then(() => {
+      generateEndLog(capName, COMPONENT_ROOT);
+    });
+};
+
+generateComponent();
+

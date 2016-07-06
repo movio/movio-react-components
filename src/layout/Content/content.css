@@ -1,0 +1,15 @@
+@import "variables.css";
+
+:root {
+  --sidebar-width: 300px;
+  --header-height: 50px;
+  --height: calc(100% - var(--header-height));
+  --width: calc(100% - var(--sidebar-width));
+}
+
+.container {
+  position: fixed var(--header-height) auto auto var(--sidebar-width);
+  height: var(--height);
+  width: var(--width);
+  overflow-y: scroll;
+}

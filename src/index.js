@@ -1,3 +1,8 @@
-// This is not required for Carte Blanche
-// but can be used for local demos or to serve
-// as an aggregate entry point.
+import ReactDOM from 'react-dom';
+import React from 'react';
+
+import './styles/global.css';
+
+import Scaffolding from './layout/Scaffolding';
+
+ReactDOM.render(<Scaffolding />, document.getElementById('root'));

@@ -5,6 +5,7 @@ module.exports = {
     "onClick": function () {
 	    console.log('Run'); // eslint-disable-line
 	  },
-    "children": "This is a different button"
+    "children": "Button",
+    "disabled": false
   }
 };

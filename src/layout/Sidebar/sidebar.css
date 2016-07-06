@@ -1,0 +1,75 @@
+@import "variables.css";
+
+:root {
+  --height: calc(100% - 50px);
+  --width: 300px;
+  --color-grey: var(--color-neutral-2);
+}
+
+.container {
+  position: fixed 50px 0 auto 0;
+  height: var(--height);
+  width: var(--width);
+  background: var(--color-grey);
+}
+
+.list {
+  list-style-type: none;
+  padding: 1.5rem;
+  margin: 0;
+}
+
+.list-item {
+  position: relative;
+  display: block;
+  padding: 6px 10px 6px 15px;
+  margin: 0 0 0 8px;
+  color: white;
+  cursor: pointer;
+  line-height: 20px;
+  transition: 0.2s all ease-in-out;
+  border-left: 2px solid white;
+  text-decoration: none;
+
+  @nest &::before {
+    content: '';
+    width: 0;
+    border-left: 2px solid white;
+    position: absolute 2px auto auto -2px;
+    transition: 0.2s all ease-in-out;
+    border-bottom: 2px solid transparent;
+    height: 1rem;
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+  @nest &::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute 11px auto auto 0;
+    border-radius: 50%;
+    background: var(--color-grey);
+    border: 2px solid white;
+    opacity: 0;
+    transition: 0.2s all ease-in-out;
+  }
+
+  @nest
+  &:hover,
+  &:active,
+  &:focus {
+    color: var(--color-primary);
+    padding-left: 2rem;
+
+    @nest &::before {
+      width: 10px;
+      box-shadow: 0 2px 0 1px var(--color-grey);
+      border-bottom: 2px solid white;
+    }
+
+    @nest &::after {
+      opacity: 1;
+      left: 8px;
+    }
+  }
+}

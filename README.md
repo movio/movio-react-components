@@ -10,7 +10,13 @@ Install project dependencies and start local server:
 $ npm install
 $ npm start
 ```
-View at [http://localhost:8080/carte-blanche](http://localhost:8080/carte-blanche)
+View at [http://localhost:8080](http://localhost:8080)
+
+### Generating component scaffolding
+Generates basic scaffolding for a new component
+```bash
+$ ./bin/generate ComponentName
+```
 
 ## Documentation
 Documentation for the components can be generated and viewed using:

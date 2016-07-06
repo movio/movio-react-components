@@ -1,0 +1,14 @@
+@import "variables.css";
+
+.container {
+  position: fixed;
+  width: 100%;
+  background: var(--color-primary);
+  padding: 0.5rem 2rem;
+  z-index: 1;
+}
+
+.logo {
+  position: relative 2px;
+  padding: 0.5rem 0;
+}
