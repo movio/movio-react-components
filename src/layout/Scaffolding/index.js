@@ -66,6 +66,12 @@ const Scaffolding = () =>
           Secondary
         </Button>
         <Button onClick={() => {}} className={cmpGroupStyles.nonFw} disabled={true}>Disabled</Button>
+        <Button
+          onClick={() => {}}
+          className={classnames(btnStyles.loading, cmpGroupStyles.nonFw)}
+        >
+          Loading Button
+        </Button>
       </ComponentGroup>
     </Content>
   </div>;

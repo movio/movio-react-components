@@ -1,4 +1,5 @@
 @import "variables.css";
+@import "animations.css";
 
 :root {
   --spacing: 10px 10px;
@@ -45,3 +46,21 @@
     background-color: var(--color-bg-secondary-hover);
   }
 }
+
+.loading {
+  position: relative;
+  padding-left: 2.5rem;
+
+  @nest &::before {
+    content: '';
+    display: block;
+    position: absolute 9px auto auto 12px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 2px solid white;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    animation: rotate 1s linear infinite;
+  }
+}
+
