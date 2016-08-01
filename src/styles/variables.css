@@ -117,8 +117,8 @@
   --color-primary-0: var(--color-orange-0);
 
   --color-primary: var(--color-primary-8);
-  --color-primary-light: var(--color-primary-c);
-  --color-primary-dark: var(--color-primary-4);
+  --color-primary-light: var(--color-primary-a);
+  --color-primary-dark: var(--color-primary-6);
 
   /* Border radius */
   --border-radius: 3px;

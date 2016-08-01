@@ -9,8 +9,8 @@
   --color-text-disabled: var(--color-neutral-b);
   --color-bg-disabled: var(--color-neutral-d);
 
-  --color-bg-secondary: var(--color-primary-c);
-  --color-bg-secondary-hover: var(--color-primary-d);
+  --color-bg-secondary: var(--color-primary-a);
+  --color-bg-secondary-hover: var(--color-primary-c);
 }
 
 .button {
