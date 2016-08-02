@@ -104,7 +104,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     // Concurrency level
     // how many browser should be started simultaneous
@@ -115,16 +115,16 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-chai',
       'karma-sourcemap-loader',
-      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-mocha-reporter',
       'karma-coverage',
     ],
 
     coverageReporter: {
-      type : 'html',
-      dir : '../coverage/',
-      subdir: 'report'
+      type: 'html',
+      dir: '../coverage/',
+      subdir: 'report',
     },
-    
-  })
+
+  });
 };
