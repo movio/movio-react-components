@@ -10,6 +10,8 @@ module.exports = function karmaConfig(config) {
     '&localIdentName=[name]__[local]___[hash:base64:5]',
   ].join('');
 
+  const generateBrowserList = (isTravis) => isTravis ? ['Chrome_travis_ci'] : ['Chrome'];
+
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -113,10 +115,17 @@ module.exports = function karmaConfig(config) {
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
+    // Custom Travis Chrome launcher
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox'],
+      },
+    },
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: generateBrowserList(process.env.TRAVIS),
 
     // Concurrency level
     // how many browser should be started simultaneous
