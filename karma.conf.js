@@ -1,7 +1,15 @@
-const path = require('path');
 const postCSSImport = require('postcss-import');
 
-module.exports = function(config) {
+module.exports = function karmaConfig(config) {
+  const cssOpts = [
+    'css',
+    '?sourceMap',
+    '&-minimize',
+    '&camelCase',
+    '&importLoaders=1',
+    '&localIdentName=[name]__[local]___[hash:base64:5]',
+  ].join('');
+
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -12,7 +20,7 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: [
       'mocha',
-      'chai'
+      'chai',
     ],
 
 
@@ -29,43 +37,47 @@ module.exports = function(config) {
             loader: 'babel-istanbul',
             query: {
               cacheDirectory: true,
-            }
-          },{
+            },
+          }, {
             test: /.spec.js$/,
             exclude: /node_modules/,
             loaders: ['babel'],
-          }
+          },
         ],
         loaders: [
           {
             test: /\.css$/,
             exclude: /node_modules/,
-            loaders: ['style', 'css?sourceMap&-minimize&camelCase&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'postcss'],
+            loaders: [
+              'style',
+              cssOpts,
+              'postcss',
+            ],
           }, {
             test: /\.json$/,
             loader: 'json',
           },
-        ]
+        ],
       },
-      postcss: (webpack) => {
-        return [
+      postcss: (webpack) => (
+        [
           postCSSImport({
             addDependencyTo: webpack,
             path: ['./src/styles'],
           }),
         ]
-      },
+      ),
       externals: {
         'react/addons': true,
         'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true
-      }
+        'react/lib/ReactContext': true,
+      },
     },
 
     // Don't spam console when running tests
     webpackMiddleware: {
       noInfo: true,
-      quiet: true
+      quiet: true,
     },
 
 
@@ -78,7 +90,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     // preprocessors: preprocessors,
     preprocessors: {
-      '**/*.spec.js': ['webpack', 'sourcemap']
+      '**/*.spec.js': ['webpack', 'sourcemap'],
     },
 
 
