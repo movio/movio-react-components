@@ -6,6 +6,7 @@ module.exports = function karmaConfig(config) {
     '?sourceMap',
     '&-minimize',
     '&camelCase',
+    '&modules',
     '&importLoaders=1',
     '&localIdentName=[name]__[local]___[hash:base64:5]',
   ].join('');
