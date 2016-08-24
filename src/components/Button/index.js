@@ -8,11 +8,12 @@ import styles from './button.css';
  * @class
  * @version 0.1
  */
-const Button = ({ className, onClick, disabled, children }) =>
+const Button = ({ className, onClick, disabled, children, ...props }) =>
   <button
     className={classnames(className, styles.button, { [styles.disabled]: disabled })}
     onClick={onClick}
     disabled={disabled === true}
+    {...props}
   >
     {children}
   </button>;
