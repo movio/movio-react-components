@@ -24,6 +24,7 @@ module.exports = function karmaConfig(config) {
     frameworks: [
       'mocha',
       'chai',
+      'sinon',
     ],
 
 
@@ -114,7 +115,7 @@ module.exports = function karmaConfig(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
     // Custom Travis Chrome launcher
     customLaunchers: {
@@ -136,6 +137,7 @@ module.exports = function karmaConfig(config) {
       'karma-webpack',
       'karma-mocha',
       'karma-chai',
+      'karma-sinon',
       'karma-sourcemap-loader',
       'karma-chrome-launcher',
       'karma-mocha-reporter',
