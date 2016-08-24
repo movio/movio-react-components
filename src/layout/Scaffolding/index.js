@@ -11,6 +11,7 @@ import H2 from '../../components/H2';
 import H3, { styles as h3Styles } from '../../components/H3';
 import P from '../../components/P';
 import Code from '../../components/Code';
+import Tooltip from '../../components/Tooltip';
 import { enhanceOverlay } from '../../enhancers/';
 
 import styles from './scaffolding.css';
@@ -78,7 +79,7 @@ const Scaffolding = () =>
         <ButtonWithTooltip
           onClick={() => {}}
           placement="bottom"
-          overlay={<div>Hi i am tooltip!</div>}
+          overlay={<Tooltip>Hi i am tooltip!</Tooltip>}
         >
           Tooltip
         </ButtonWithTooltip>
