@@ -11,6 +11,7 @@ import H2 from '../../components/H2';
 import H3, { styles as h3Styles } from '../../components/H3';
 import P from '../../components/P';
 import Code from '../../components/Code';
+import { enhanceOverlay } from '../../enhancers/';
 
 import styles from './scaffolding.css';
 
@@ -28,6 +29,8 @@ const map = (fn, xs) => xs.map(fn);
   color: var(--color-text);
 }
 `;
+
+const ButtonWithTooltip = enhanceOverlay(Button);
 
 const Scaffolding = () =>
   <div className={styles.container}>
@@ -72,6 +75,13 @@ const Scaffolding = () =>
         >
           Loading Button
         </Button>
+        <ButtonWithTooltip
+          onClick={() => {}}
+          placement="bottom"
+          overlay={<div>Hi i am tooltip!</div>}
+        >
+          Tooltip
+        </ButtonWithTooltip>
       </ComponentGroup>
     </Content>
   </div>;
