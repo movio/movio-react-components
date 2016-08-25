@@ -11,6 +11,12 @@
 
   --color-bg-secondary: var(--color-primary-a);
   --color-bg-secondary-hover: var(--color-primary-c);
+
+  --disabled-styles: {
+    cursor: not-allowed;
+    background-color: var(--color-bg-disabled);
+    color: var(--color-text-disabled);
+  }
 }
 
 .button {
@@ -31,12 +37,14 @@
     background-color: var(--color-hover);
   }
 
+  @nest &:disabled {
+    @apply --disabled-styles;
+  }
+
 }
 
 .disabled {
-  background-color: var(--color-bg-disabled);
-  color: var(--color-text-disabled);
-  cursor: not-allowed;
+  @apply --disabled-styles;
 }
 
 .secondary {
