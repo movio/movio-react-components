@@ -12,6 +12,7 @@ import H3, { styles as h3Styles } from '../../components/H3';
 import P from '../../components/P';
 import Code from '../../components/Code';
 import Tooltip from '../../components/Tooltip';
+import TextInput from '../../components/TextInput/';
 import { enhanceOverlay } from '../../enhancers/';
 
 import styles from './scaffolding.css';
@@ -83,6 +84,10 @@ const Scaffolding = () =>
         >
           Tooltip
         </ButtonWithTooltip>
+      </ComponentGroup>
+      <ComponentGroup title="Form Elements">
+        <TextInput name="normal-input" onChange={() => {}} placeholder="Text Input" />
+        <TextInput name="label-input" label="Label" onChange={() => {}} placeholder="Text Input w/ label" />
       </ComponentGroup>
     </Content>
   </div>;

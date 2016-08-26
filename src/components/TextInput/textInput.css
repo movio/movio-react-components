@@ -1,0 +1,35 @@
+@import "variables.css";
+
+:root {
+  --border-radius: 3px;
+  --color-bg: var(--color-neutral-f);
+  --normal-shadow: inset 0 0 0 2px transparent;
+  --focus-shadow: inset 0 0 0 2px var(--color-primary-8);
+}
+
+@custom-selector :--enter :focus, :active;
+
+.container {
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--border-radius);
+  padding: 0 1rem;
+  background: var(--color-bg);
+  transition: all 0.3s;
+  box-shadow: var(--normal-shadow);
+
+  @nest &:--enter {
+    background: white;
+    box-shadow: var(--focus-shadow);
+  }
+}
