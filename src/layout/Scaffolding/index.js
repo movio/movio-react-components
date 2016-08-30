@@ -11,6 +11,8 @@ import H2 from '../../components/H2';
 import H3, { styles as h3Styles } from '../../components/H3';
 import P from '../../components/P';
 import Code from '../../components/Code';
+import Tooltip from '../../components/Tooltip';
+import { enhanceOverlay } from '../../enhancers/';
 
 import styles from './scaffolding.css';
 
@@ -28,6 +30,8 @@ const map = (fn, xs) => xs.map(fn);
   color: var(--color-text);
 }
 `;
+
+const ButtonWithTooltip = enhanceOverlay(Button);
 
 const Scaffolding = () =>
   <div className={styles.container}>
@@ -66,6 +70,19 @@ const Scaffolding = () =>
           Secondary
         </Button>
         <Button onClick={() => {}} className={cmpGroupStyles.nonFw} disabled={true}>Disabled</Button>
+        <Button
+          onClick={() => {}}
+          className={classnames(btnStyles.loading, cmpGroupStyles.nonFw)}
+        >
+          Loading Button
+        </Button>
+        <ButtonWithTooltip
+          onClick={() => {}}
+          placement="bottom"
+          overlay={<Tooltip>Hi i am tooltip!</Tooltip>}
+        >
+          Tooltip
+        </ButtonWithTooltip>
       </ComponentGroup>
     </Content>
   </div>;

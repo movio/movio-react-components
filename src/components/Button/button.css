@@ -1,4 +1,5 @@
 @import "variables.css";
+@import "animations.css";
 
 :root {
   --spacing: 10px 10px;
@@ -8,8 +9,14 @@
   --color-text-disabled: var(--color-neutral-b);
   --color-bg-disabled: var(--color-neutral-d);
 
-  --color-bg-secondary: var(--color-primary-c);
-  --color-bg-secondary-hover: var(--color-primary-d);
+  --color-bg-secondary: var(--color-primary-a);
+  --color-bg-secondary-hover: var(--color-primary-c);
+
+  --disabled-styles: {
+    cursor: not-allowed;
+    background-color: var(--color-bg-disabled);
+    color: var(--color-text-disabled);
+  }
 }
 
 .button {
@@ -30,12 +37,14 @@
     background-color: var(--color-hover);
   }
 
+  @nest &:disabled {
+    @apply --disabled-styles;
+  }
+
 }
 
 .disabled {
-  background-color: var(--color-bg-disabled);
-  color: var(--color-text-disabled);
-  cursor: not-allowed;
+  @apply --disabled-styles;
 }
 
 .secondary {
@@ -45,3 +54,21 @@
     background-color: var(--color-bg-secondary-hover);
   }
 }
+
+.loading {
+  position: relative;
+  padding-left: 2.5rem;
+
+  @nest &::before {
+    content: '';
+    display: block;
+    position: absolute 9px auto auto 12px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 2px solid white;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    animation: rotate 1s linear infinite;
+  }
+}
+

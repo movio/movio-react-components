@@ -1,16 +1,23 @@
 {
   "extends": "airbnb",
   "env": {
-    "mocha": true
+    "mocha": true,
+    "browser": true,
+    "node": true
   },
   "plugins": ["react"],
   "parser": "babel-eslint",
   "rules": {
     "no-confusing-arrow": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
+    "no-unused-expressions": "off",
+    "no-underscore-dangle": ["error", {"allowAfterThis": true}],
     "no-else-return": "off",
     "max-len": ["error", 120],
     "no-unused-vars": ["error", {"args": "none"}],
-    "react/jsx-boolean-value": ["error", "always"]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-boolean-value": ["error", "always"],
+    "react/self-closing-comp": "off"
   },
   "settings": {
     "import/resolver": "webpack"

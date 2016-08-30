@@ -1,7 +1,18 @@
-const path = require('path');
 const postCSSImport = require('postcss-import');
 
-module.exports = function(config) {
+module.exports = function karmaConfig(config) {
+  const cssOpts = [
+    'css',
+    '?sourceMap',
+    '&-minimize',
+    '&camelCase',
+    '&modules',
+    '&importLoaders=1',
+    '&localIdentName=[name]__[local]___[hash:base64:5]',
+  ].join('');
+
+  const generateBrowserList = (isTravis) => isTravis ? ['Chrome_travis_ci'] : ['Chrome'];
+
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -12,7 +23,8 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: [
       'mocha',
-      'chai'
+      'chai',
+      'sinon',
     ],
 
 
@@ -29,43 +41,47 @@ module.exports = function(config) {
             loader: 'babel-istanbul',
             query: {
               cacheDirectory: true,
-            }
-          },{
+            },
+          }, {
             test: /.spec.js$/,
             exclude: /node_modules/,
             loaders: ['babel'],
-          }
+          },
         ],
         loaders: [
           {
             test: /\.css$/,
             exclude: /node_modules/,
-            loaders: ['style', 'css?sourceMap&-minimize&camelCase&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]', 'postcss'],
+            loaders: [
+              'style',
+              cssOpts,
+              'postcss',
+            ],
           }, {
             test: /\.json$/,
             loader: 'json',
           },
-        ]
+        ],
       },
-      postcss: (webpack) => {
-        return [
+      postcss: (webpack) => (
+        [
           postCSSImport({
             addDependencyTo: webpack,
             path: ['./src/styles'],
           }),
         ]
-      },
+      ),
       externals: {
         'react/addons': true,
         'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true
-      }
+        'react/lib/ReactContext': true,
+      },
     },
 
     // Don't spam console when running tests
     webpackMiddleware: {
       noInfo: true,
-      quiet: true
+      quiet: true,
     },
 
 
@@ -78,7 +94,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     // preprocessors: preprocessors,
     preprocessors: {
-      '**/*.spec.js': ['webpack', 'sourcemap']
+      '**/*.spec.js': ['webpack', 'sourcemap'],
     },
 
 
@@ -99,12 +115,19 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
+    // Custom Travis Chrome launcher
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox'],
+      },
+    },
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: generateBrowserList(process.env.TRAVIS),
 
     // Concurrency level
     // how many browser should be started simultaneous
@@ -114,17 +137,18 @@ module.exports = function(config) {
       'karma-webpack',
       'karma-mocha',
       'karma-chai',
+      'karma-sinon',
       'karma-sourcemap-loader',
-      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-mocha-reporter',
       'karma-coverage',
     ],
 
     coverageReporter: {
-      type : 'html',
-      dir : '../coverage/',
-      subdir: 'report'
+      type: 'html',
+      dir: '../coverage/',
+      subdir: 'report',
     },
-    
-  })
+
+  });
 };

@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/movio/movio-react-components.svg?branch=master)](https://travis-ci.org/movio/movio-react-components)
 
 # Movio React Components
-Component library for Movio Components built on [carte-blanche](https://github.com/carteb/carte-blanche).
+React Component library for Movio Components.
 
 ## Get Started
 Install project dependencies and start local server:
@@ -18,16 +18,23 @@ Generates basic scaffolding for a new component
 $ ./bin/generate ComponentName
 ```
 
-## Documentation
-Documentation for the components can be generated and viewed using:
+### Script list
 
-```bash
-# Generate docs
-$ npm run docs
-
-# Serve docs (at http://localhost:8081)
-$ npm run serve:docs
-```
+Script | Description
+--- | ---
+`start` | Starts the Webpack dev server, available at [http://localhost:8080](http://localhost:8080)
+`test` | Starts Karma for single run test (uses PhantomJS) *not for CI*
+`test:ci` | Starts Karma for single run test (uses PhantomJS) *for CI*
+`test:watch` | Starts Karma with watch
+`lint` | Runs ESLint *not for CI*
+`lint:ci` | Runs ESLint *for CI*
+`format` | Fixes linting issues (where applicable)
+`lint:style` | Runs Stylelint *not for CI*
+`lint:style:ci` | Runs Stylelint *for CI*
+`check` | Runs tests and linters *for CI*
+`docs` | Generates component documentation
+`serve:docs` | Serves the documentation at [http://localhost:8081](http://localhost:8081)
+`serve:coverage` | Serves the coverage report at [http://localhost:8082](http://localhost:8082)
 
 ## Tests
 Run unit tests using:
