@@ -4,9 +4,13 @@ import styles from './sidebar.css';
 
 const handleSideBarClick = () => {};
 
-const renderSidebarItems = (items) =>
+const renderSidebarItems = items =>
   items.map(item =>
-    <li key={item} className={styles.listItem} onClick={() => handleSideBarClick(item)}>{item}</li>
+    <li key={item} className={styles.listItem}>
+      <button className={styles.btn} onClick={() => handleSideBarClick(item)}>
+        {item}
+      </button>
+    </li>
   );
 
 const Sidebar = ({ items }) =>

@@ -51,12 +51,13 @@ class TextInput extends Component {
       inputType,
       placeholder,
       className,
+      containerClassName,
       disabled,
       name,
     } = this.props;
     const { value } = this.state;
     const classList = classnames(className, styles.input);
-    const containerClassList = classnames(className, styles.container);
+    const containerClassList = classnames(containerClassName, styles.container);
 
     return (
       <fieldset className={containerClassList}>
@@ -66,7 +67,7 @@ class TextInput extends Component {
           className={classList}
           type={inputType}
           placeholder={placeholder}
-          onChange={(e) => this.handleChange(e)}
+          onChange={e => this.handleChange(e)}
           value={value}
           disabled={disabled}
         />

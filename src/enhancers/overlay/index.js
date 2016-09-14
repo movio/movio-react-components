@@ -63,7 +63,7 @@ const enhanceOverlay = ComposedComponent => class EnhancedOverlay extends Compon
     this.clearTrackerTimout(tracker);
   }
 
-  handleDisplay = display => {
+  handleDisplay = (display) => {
     this.clearTrackerTimout(tracker);
 
     if (display === this.state.display) return;
