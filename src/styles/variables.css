@@ -99,22 +99,22 @@
   --color-succes: #2ECC71;
 
   /* Primaries, light to dark */
-  --color-primary-f: var(--color-orange-f);
-  --color-primary-e: var(--color-orange-e);
-  --color-primary-d: var(--color-orange-d);
-  --color-primary-c: var(--color-orange-c);
-  --color-primary-b: var(--color-orange-b);
-  --color-primary-a: var(--color-orange-a);
-  --color-primary-9: var(--color-orange-9);
-  --color-primary-8: var(--color-orange-8);
-  --color-primary-7: var(--color-orange-7);
-  --color-primary-6: var(--color-orange-6);
-  --color-primary-5: var(--color-orange-5);
-  --color-primary-4: var(--color-orange-4);
-  --color-primary-3: var(--color-orange-3);
-  --color-primary-2: var(--color-orange-2);
-  --color-primary-1: var(--color-orange-1);
-  --color-primary-0: var(--color-orange-0);
+  --color-primary-f: var(--color-blue-f);
+  --color-primary-e: var(--color-blue-e);
+  --color-primary-d: var(--color-blue-d);
+  --color-primary-c: var(--color-blue-c);
+  --color-primary-b: var(--color-blue-b);
+  --color-primary-a: var(--color-blue-a);
+  --color-primary-9: var(--color-blue-9);
+  --color-primary-8: var(--color-blue-8);
+  --color-primary-7: var(--color-blue-7);
+  --color-primary-6: var(--color-blue-6);
+  --color-primary-5: var(--color-blue-5);
+  --color-primary-4: var(--color-blue-4);
+  --color-primary-3: var(--color-blue-3);
+  --color-primary-2: var(--color-blue-2);
+  --color-primary-1: var(--color-blue-1);
+  --color-primary-0: var(--color-blue-0);
 
   --color-primary: var(--color-primary-8);
   --color-primary-light: var(--color-primary-a);
