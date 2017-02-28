@@ -14,7 +14,7 @@ const path = require('path');
 const fs = require('fs');
 const argv = require('yargs').argv;
 const chalk = require('chalk');
-const { head, toLower, capitalize } = require('lodash');
+const { head, camelCase, upperFirst } = require('lodash');
 
 const calcRelPath = (pathName) => path.relative(path.resolve(__dirname, '..'), pathName);
 
@@ -29,10 +29,10 @@ const generateEndLog = (componentName, pathName) => (
 const COMPONENTS_ROOT = path.resolve(__dirname, '..', 'src', 'components');
 
 const name = head(argv._);
-const lowerCaseName = toLower(name);
-const capName = capitalize(name);
+const camelCaseName = camelCase(name);
+const capName = upperFirst(camelCaseName);
 
-const cssFileName = `${lowerCaseName}.css`;
+const cssFileName = `${camelCaseName}.css`;
 const cssContent = `@import "variables.css";
 
 .container {}
@@ -42,7 +42,7 @@ const jsFileName = 'index.js';
 const jsContent = `import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
-import styles from './${lowerCaseName}.css';
+import styles from './${camelCaseName}.css';
 
 const ${capName} = ({ className, children }) =>
   <div className={classnames(className, styles.container)}>
@@ -60,7 +60,7 @@ export {
 };
 `;
 
-const jsSpecFileName = `${lowerCaseName}.spec.js`;
+const jsSpecFileName = `${camelCaseName}.spec.js`;
 const jsSpecContent = `import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';

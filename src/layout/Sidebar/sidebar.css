@@ -73,3 +73,13 @@
     }
   }
 }
+
+.btn {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  cursor: inherit;
+  width: 100%;
+  text-align: inherit;
+}

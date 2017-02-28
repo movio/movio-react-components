@@ -3,11 +3,6 @@ import classnames from 'classnames';
 
 import styles from './logo.css';
 
-/**
- * Logo Component
- * @class
- * @version 0.1
- */
 const Logo = ({ className, svgClassName }) =>
   <div className={classnames(className, styles.container)}>
     <svg width="92px" height="17px" viewBox="0 0 92 17" version="1.1" className={classnames(svgClassName, styles.svg)}>
@@ -54,11 +49,6 @@ const Logo = ({ className, svgClassName }) =>
     </svg>
   </div>;
 
-/**
- * @property {object}     propTypes                   - Logo PropTypes
- * @property {string}     propTypes.className         - Context class name
- * @property {string}     propTypes.svgClassName      - Inner SVG class name
- */
 Logo.propTypes = {
   className: PropTypes.string,
   svgClassName: PropTypes.string,

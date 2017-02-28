@@ -11,7 +11,7 @@ module.exports = function karmaConfig(config) {
     '&localIdentName=[name]__[local]___[hash:base64:5]',
   ].join('');
 
-  const generateBrowserList = (isTravis) => isTravis ? ['Chrome_travis_ci'] : ['Chrome'];
+  const generateBrowserList = isTravis => isTravis ? ['Chrome_travis_ci'] : ['Chrome'];
 
   config.set({
 

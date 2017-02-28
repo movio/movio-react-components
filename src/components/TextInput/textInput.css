@@ -1,0 +1,59 @@
+@import "variables.css";
+
+:root {
+  --border-radius: 3px;
+  --color-bg: var(--color-neutral-f);
+  --normal-shadow: inset 0 0 0 2px transparent;
+  --focus-shadow: inset 0 0 0 2px var(--color-primary-8);
+
+  --color-bg-disabled: var(--color-neutral-d);
+  --color-text-disabled: var(--color-neutral-b);
+
+  --disabled-styles: {
+    cursor: not-allowed;
+    background-color: var(--color-bg-disabled);
+    color: var(--color-text-disabled);
+  }
+}
+
+@custom-selector :--enter :focus:enabled, :active:enabled;
+
+.container {
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--border-radius);
+  padding: 0 1rem;
+  background: var(--color-bg);
+  transition: all 0.3s;
+  box-shadow: var(--normal-shadow);
+  width: 100%;
+
+  @nest &:--enter {
+    background: white;
+    box-shadow: var(--focus-shadow);
+  }
+
+  @nest &:disabled {
+    @apply --disabled-styles;
+  }
+}
+
+.disabled {
+  @apply --disabled-styles;
+}
+
+.label {
+  margin: 0 0 0.25rem 0;
+  display: block;
+  font-size: 1rem;
+}

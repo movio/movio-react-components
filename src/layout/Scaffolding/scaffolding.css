@@ -4,3 +4,10 @@
   margin: 0 0 0.25rem 0;
 }
 
+.text-input-block {
+  margin: 0 1rem 1rem 0 !important;
+  display: inline-block;
+  font-size: 0;
+  min-width: 18vw;
+}
+
