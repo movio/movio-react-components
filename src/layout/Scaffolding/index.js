@@ -86,8 +86,26 @@ const Scaffolding = () =>
         </ButtonWithTooltip>
       </ComponentGroup>
       <ComponentGroup title="Form Elements">
-        <TextInput name="normal-input" onChange={() => {}} placeholder="Text Input" />
-        <TextInput name="label-input" label="Label" onChange={() => {}} placeholder="Text Input w/ label" />
+        <TextInput
+          name="normal-input"
+          onChange={() => {}}
+          placeholder="Text Input"
+          containerClassName={styles.textInputBlock}
+        />
+        <TextInput
+          name="label-input"
+          label="Label"
+          onChange={() => {}}
+          placeholder="Text Input w/ label"
+          containerClassName={styles.textInputBlock}
+        />
+        <TextInput
+          name="disabled-input"
+          onChange={() => {}}
+          placeholder="Disabled"
+          containerClassName={styles.textInputBlock}
+          disabled={true}
+        />
       </ComponentGroup>
     </Content>
   </div>;

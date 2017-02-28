@@ -23,3 +23,9 @@
   max-width: var(--block-max-width);
 }
 
+.children-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
