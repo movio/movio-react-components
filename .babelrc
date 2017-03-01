@@ -1,3 +1,6 @@
 {
-  "presets": ["movio"]
+  "presets": ["movio"],
+  "plugins": [
+    "react-hot-loader/babel"
+  ]
 }
