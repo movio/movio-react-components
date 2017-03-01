@@ -17,7 +17,8 @@
     "no-unused-vars": ["error", {"args": "none"}],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-boolean-value": ["error", "always"],
-    "react/self-closing-comp": "off"
+    "react/self-closing-comp": "off",
+    "global-require": "off",
   },
   "settings": {
     "import/resolver": "webpack"
