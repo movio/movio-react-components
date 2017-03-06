@@ -60,7 +60,7 @@ module.exports = env => ({
     alias: {
       Components: path.resolve(ROOT_PATH, 'src/components/'),
       Enhancers: path.resolve(ROOT_PATH, 'src/enhancers/'),
-      Layout: path.resolve(ROOT_PATH, 'src/layout/'),
+      Layouts: path.resolve(ROOT_PATH, 'src/layout/'),
       Styles: path.resolve(ROOT_PATH, 'src/styles/'),
     },
   },
