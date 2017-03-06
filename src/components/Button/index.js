@@ -20,6 +20,11 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+Button.defaultProps = {
+  className: null,
+  disabled: false,
+};
+
 export default Button;
 
 export {

@@ -13,6 +13,10 @@ P.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+P.defaultProps = {
+  className: null,
+};
+
 export default P;
 export {
   styles,

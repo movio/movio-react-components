@@ -13,6 +13,10 @@ Tooltip.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+Tooltip.defaultProps = {
+  className: null,
+};
+
 export default Tooltip;
 export {
   styles,

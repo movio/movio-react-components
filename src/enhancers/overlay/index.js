@@ -17,7 +17,7 @@ const enhanceOverlay = ComposedComponent => class EnhancedOverlay extends Compon
     children: PropTypes.node.isRequired,
     delay: PropTypes.number,
     display: PropTypes.bool,
-    overlay: PropTypes.element,
+    overlay: PropTypes.element.isRequired,
     trigger: PropTypes.oneOf(['hover', 'click']),
     onEntered: PropTypes.func,
     onExited: PropTypes.func,
@@ -32,6 +32,11 @@ const enhanceOverlay = ComposedComponent => class EnhancedOverlay extends Compon
     placement: 'bottom',
     trigger: 'click',
     delay: 0,
+    onEntered: null,
+    onExited: null,
+    onClick: null,
+    onMouseOver: null,
+    onMouseOut: null,
   };
 
   constructor(props, context) {
@@ -43,10 +48,12 @@ const enhanceOverlay = ComposedComponent => class EnhancedOverlay extends Compon
   }
 
   componentWillReceiveProps({ display }) {
-    if (display !== this.props.display) this.handleDisplay(display);
+    if (display !== this.props.display) {
+      this.handleDisplay(display);
+    }
   }
 
-  componentDidUpdate(_, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.display !== this.state.display) {
       const { onEntered, onExited } = this.props;
       const cb = this.state.display ? onEntered : onExited;
@@ -59,7 +66,9 @@ const enhanceOverlay = ComposedComponent => class EnhancedOverlay extends Compon
   clearTrackerTimout = _tracker => clearTimeout(_tracker.get(this).timeoutId);
 
   componentWillUnmount() {
-    if (super.componentWillUnmount) super.componentWillUnmount();
+    if (super.componentWillUnmount) {
+      super.componentWillUnmount();
+    }
     this.clearTrackerTimout(tracker);
   }
 

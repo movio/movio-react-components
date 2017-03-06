@@ -54,6 +54,11 @@ Logo.propTypes = {
   svgClassName: PropTypes.string,
 };
 
+Logo.defaultProps = {
+  className: null,
+  svgClassName: null,
+};
+
 export default Logo;
 export {
   styles,

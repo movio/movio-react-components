@@ -13,6 +13,10 @@ H3.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+H3.defaultProps = {
+  className: null,
+};
+
 export default H3;
 export {
   styles,

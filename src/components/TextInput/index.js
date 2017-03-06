@@ -21,6 +21,10 @@ class TextInput extends Component {
     inputType: 'text',
     placeholder: '...',
     disabled: false,
+    className: null,
+    containerClassName: null,
+    labelClassName: null,
+    label: null,
   };
 
   constructor(props, context) {

@@ -20,6 +20,11 @@ ComponentGroup.propTypes = {
   childrenClassName: PropTypes.string,
 };
 
+ComponentGroup.defaultProps = {
+  className: null,
+  childrenClassName: null,
+};
+
 export default ComponentGroup;
 export {
   styles,

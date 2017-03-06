@@ -24,4 +24,8 @@ Sidebar.propTypes = {
   items: PropTypes.arrayOf(PropTypes.string),
 };
 
+Sidebar.defaultProps = {
+  items: [],
+};
+
 export default Sidebar;

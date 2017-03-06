@@ -15,6 +15,9 @@ Code.propTypes = {
   code: PropTypes.string.isRequired,
 };
 
+Code.defaultProps = {
+  className: null,
+};
 
 export default Code;
 export {
