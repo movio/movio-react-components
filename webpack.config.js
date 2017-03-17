@@ -5,13 +5,16 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ROOT_PATH = path.resolve(__dirname);
 
 module.exports = env => ({
+
   context: path.resolve(ROOT_PATH, 'src'),
+
   entry: [
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './index.js',
   ],
+
   devtool: 'inline-source-map',
 
   output: {
@@ -69,7 +72,7 @@ module.exports = env => ({
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new HTMLWebpackPlugin({
-      inject: false,
+      inject: true,
       template: path.resolve(ROOT_PATH, 'src/index.html'),
       showErrors: true,
     }),

@@ -1,0 +1,9 @@
+{
+  "verbose": true,
+  "moduleNameMapper": {
+    "\\.(css)$": "identity-obj-proxy"
+  },
+  "collectCoverageFrom": [
+    "src/**/*.js"
+  ]
+}
