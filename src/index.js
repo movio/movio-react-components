@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { AppContainer } from 'react-hot-loader';
-import Scaffolding from 'Layouts/Scaffolding';
+import Scaffolding from './layout/Scaffolding';
 
 import './styles/global.css';
 

@@ -59,15 +59,6 @@ module.exports = env => ({
     ],
   },
 
-  resolve: {
-    alias: {
-      Components: path.resolve(ROOT_PATH, 'src/components/'),
-      Enhancers: path.resolve(ROOT_PATH, 'src/enhancers/'),
-      Layouts: path.resolve(ROOT_PATH, 'src/layout/'),
-      Styles: path.resolve(ROOT_PATH, 'src/styles/'),
-    },
-  },
-
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
