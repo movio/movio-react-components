@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button-children-text 1`] = `
+<button
+  className="button"
+  disabled={false}
+  onClick={[Function]}
+>
+  This is a button
+</button>
+`;
+
+exports[`button-custom-classname 1`] = `
+<button
+  className="test-class button"
+  disabled={false}
+  onClick={[Function]}
+>
+  Movio Button
+</button>
+`;
+
+exports[`button-default-classname 1`] = `
+<button
+  className="button"
+  disabled={false}
+  onClick={[Function]}
+>
+  Movio Button
+</button>
+`;
+
+exports[`button-disabled 1`] = `
+<button
+  className="button disabled"
+  disabled={true}
+  onClick={[Function]}
+>
+  Disabled Button
+</button>
+`;

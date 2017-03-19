@@ -1,33 +1,53 @@
 {
   "extends": "airbnb",
   "env": {
-    "mocha": true,
     "browser": true,
-    "node": true
+    "jest": true
   },
-  "plugins": ["react"],
+  "plugins": ["react", "flowtype"],
   "parser": "babel-eslint",
   "rules": {
+    "no-confusing-arrow": "off",
+    "no-else-return": "off",
+    "no-underscore-dangle": "off",
+    "no-duplicate-imports": "off",
+    "max-len": ["error", 120],
+    "no-unused-vars": ["error", {"args": "none"}],
+    "no-unused-expressions": ["error", {"allowTernary": true}],
+    "react/jsx-boolean-value": ["error", "always"],
+    "flowtype/define-flow-type": 1,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
+    "import/prefer-default-export": "off",
+    "import/no-dynamic-require": "off",
+    "import/extensions": "off",
+    "react/self-closing-comp": "off",
+    "no-constant-condition": ["error", { "checkLoops": false }],
+    "react/jsx-filename-extension": "off",
+    "react/require-default-props": "off",
+    "jsx-a11y/no-static-element-interactions": 0,
+    "react/sort-comp": [1, {
+      "order": [
+        "type-annotations",
+        "lifecycle",
+        "static-methods",
+        "everything-else",
+        "render"
+      ]
+    }],
     "comma-dangle": ["error", {
       "arrays": "always-multiline",
       "objects": "always-multiline",
       "imports": "always-multiline",
       "exports": "always-multiline",
-      "functions": "never"
+      "functions": "ignore"
     }],
-    "no-confusing-arrow": "off",
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
-    "no-unused-expressions": "off",
-    "no-underscore-dangle": ["error", {"allowAfterThis": true}],
-    "no-else-return": "off",
-    "max-len": ["error", 120],
-    "no-unused-vars": ["error", {"args": "none"}],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-boolean-value": ["error", "always"],
-    "react/self-closing-comp": "off",
     "global-require": "off"
   },
   "settings": {
-    "import/resolver": "webpack"
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
   }
 }

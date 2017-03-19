@@ -1,7 +1,6 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import { spy } from 'sinon';
+import renderer from 'react-test-renderer';
 
 import Button, { styles } from './index';
 
@@ -9,34 +8,46 @@ const noop = () => {};
 
 describe('<Button />', () => {
   it('should correctly render children, when text', () => {
-    const wrapper = shallow(<Button onClick={noop}>This is a button</Button>);
-    expect(wrapper.text()).to.equal('This is a button');
+    const component = <Button onClick={noop}>This is a button</Button>;
+    const wrapper = shallow(component);
+    expect(wrapper.text()).toEqual('This is a button');
+    const tree = renderer.create(component).toJSON();
+    expect(tree).toMatchSnapshot('button-children-text');
   });
 
   it('should append a className to the default, if provided', () => {
-    const wrapper = shallow(<Button className="test-class" onClick={noop}>Movio Button</Button>);
-    expect(wrapper.prop('className')).to.equal(`test-class ${styles.button}`);
+    const component = <Button className="test-class" onClick={noop}>Movio Button</Button>;
+    const wrapper = shallow(component);
+    expect(wrapper.prop('className')).toEqual(`test-class ${styles.button}`);
+    const tree = renderer.create(component).toJSON();
+    expect(tree).toMatchSnapshot('button-custom-classname');
   });
 
   it('should use the default className from the stylesheet, if not provided', () => {
-    const wrapper = shallow(<Button onClick={noop}>Movio Button</Button>);
-    expect(wrapper.prop('className')).to.equal(styles.button);
+    const component = <Button onClick={noop}>Movio Button</Button>;
+    const wrapper = shallow(component);
+    expect(wrapper.prop('className')).toEqual(styles.button);
+    const tree = renderer.create(component).toJSON();
+    expect(tree).toMatchSnapshot('button-default-classname');
   });
 
   it('should add a disabled class to the button, if disabled', () => {
-    const wrapper = shallow(<Button onClick={noop} disabled={true}>Disabled Button</Button>);
-    expect(wrapper.prop('className')).to.equal(`${styles.button} ${styles.disabled}`);
+    const component = <Button onClick={noop} disabled={true}>Disabled Button</Button>;
+    const wrapper = shallow(component);
+    expect(wrapper.prop('className')).toEqual(`${styles.button} ${styles.disabled}`);
+    const tree = renderer.create(component).toJSON();
+    expect(tree).toMatchSnapshot('button-disabled');
   });
 
   it('should add an onClick handler to the button', () => {
     const wrapper = shallow(<Button onClick={noop}>Button</Button>);
-    expect(wrapper.prop('onClick')).to.equal(noop);
+    expect(wrapper.prop('onClick')).toEqual(noop);
   });
 
   it('should trigger a click when onClick is fired', () => {
-    const btnSpy = spy();
+    const btnSpy = jest.fn();
     const wrapper = shallow(<Button onClick={btnSpy}>Button</Button>);
     wrapper.find('button').simulate('click');
-    expect(btnSpy.calledOnce).to.equal(true);
+    expect(btnSpy.mock.calls).toHaveLength(1);
   });
 });

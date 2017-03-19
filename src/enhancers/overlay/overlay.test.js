@@ -1,7 +1,5 @@
 import React from 'react';
-import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { useFakeTimers } from 'sinon';
 
 import enhanceOverlay from './index.js';
 
@@ -12,15 +10,17 @@ const elLookup = selector => document.querySelectorAll(selector);
 
 describe('enhanceOverlay', () => {
   let EnhancedComponent;
-  let clock;
   let wrapper;
 
-  before(() => {
-    clock = useFakeTimers();
+  beforeAll(() => {
+    jest.useFakeTimers();
   });
 
-  after(() => {
-    clock.restore();
+  afterAll(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
+    wrapper = null;
+    EnhancedComponent = null;
   });
 
   beforeEach(() => {
@@ -31,41 +31,42 @@ describe('enhanceOverlay', () => {
     if (wrapper && wrapper.unmount) {
       wrapper.unmount();
     }
+    jest.clearAllTimers();
   });
 
   it('should return a function', () => {
-    expect(EnhancedComponent).to.be.a('function');
+    expect(EnhancedComponent).toBeInstanceOf(Function);
   });
 
   it('should set up default props on the enhanced component, if not provided', () => {
     wrapper = mount(<EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>);
-    expect(wrapper.props().delay).to.equal(0);
-    expect(wrapper.props().display).to.equal(false);
-    expect(wrapper.props().placement).to.equal('bottom');
-    expect(wrapper.props().trigger).to.equal('click');
+    expect(wrapper.props().delay).toEqual(0);
+    expect(wrapper.props().display).toEqual(false);
+    expect(wrapper.props().placement).toEqual('bottom');
+    expect(wrapper.props().trigger).toEqual('click');
   });
 
   it('should render children', () => {
     wrapper = mount(<EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>);
-    expect(wrapper.find('div')).to.have.length(1);
-    expect(elLookup('.tether-element').length).to.equal(0);
+    expect(wrapper.find('div')).toHaveLength(1);
+    expect(elLookup('.tether-element').length).toEqual(0);
     wrapper.setState({ display: true });
-    expect(elLookup('.tether-element').length).to.equal(1);
+    expect(elLookup('.tether-element').length).toEqual(1);
   });
 
   it('should create a tether element when triggered', () => {
     wrapper = mount(<EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>);
-    expect(elLookup('.tether-element').length).to.equal(0);
+    expect(elLookup('.tether-element').length).toEqual(0);
     wrapper.setState({ display: true });
-    expect(elLookup('.tether-element').length).to.equal(1);
+    expect(elLookup('.tether-element').length).toEqual(1);
   });
 
   it('should set display state when it receives a new display prop', () => {
     wrapper = mount(<EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>);
     wrapper.setProps({ display: true });
-    expect(wrapper.state().display).to.equal(true);
+    expect(wrapper.state().display).toEqual(true);
     wrapper.setProps({ display: false });
-    expect(wrapper.state().display).to.equal(false);
+    expect(wrapper.state().display).toEqual(false);
   });
 
   it('should correctly delay displaying if "delay" is set', () => {
@@ -78,8 +79,8 @@ describe('enhanceOverlay', () => {
       </EnhancedComponent>
     );
     wrapper.setProps({ display: true });
-    expect(wrapper.state().display).to.equal(false);
-    clock.tick(1001);
-    expect(wrapper.state().display).to.equal(true);
+    expect(wrapper.state().display).toEqual(false);
+    jest.runTimersToTime(1001);
+    expect(wrapper.state().display).toEqual(true);
   });
 });

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`p-basic 1`] = `
+<p
+  className="p"
+>
+  This is a sample paragraph. It has some level of text. There is a lot of it.
+</p>
+`;
+
+exports[`p-custom-classname 1`] = `
+<p
+  className="test-class p"
+>
+  This is a sample paragraph. It has some level of text. There is a lot of it.
+</p>
+`;
+
+exports[`p-default-classname 1`] = `
+<p
+  className="p"
+>
+  This is a sample paragraph. It has some level of text. There is a lot of it.
+</p>
+`;

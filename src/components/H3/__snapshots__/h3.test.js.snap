@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`h3-children-text 1`] = `
+<h3
+  className="h3"
+>
+  Title
+</h3>
+`;
+
+exports[`h3-custom-classname 1`] = `
+<h3
+  className="test-class h3"
+>
+  Title H3
+</h3>
+`;
+
+exports[`h3-default-classname 1`] = `
+<h3
+  className="h3"
+>
+  Title H3
+</h3>
+`;

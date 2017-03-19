@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`code-custom-classname 1`] = `
+<pre
+  className="test-class container"
+>
+  <code
+    className="code"
+  >
+    const a = (b) =&gt; b + 1;
+  </code>
+</pre>
+`;
+
+exports[`code-default-classname 1`] = `
+<pre
+  className="container"
+>
+  <code
+    className="code"
+  >
+    const a = (b) =&gt; b + 1;
+  </code>
+</pre>
+`;
+
+exports[`code-single-child 1`] = `
+<pre
+  className="container"
+>
+  <code
+    className="code"
+  >
+    const a = (b) =&gt; b + 1;
+  </code>
+</pre>
+`;

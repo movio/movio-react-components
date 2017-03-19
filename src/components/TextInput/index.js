@@ -5,6 +5,13 @@ import styles from './textInput.css';
 
 class TextInput extends Component {
 
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      value: '',
+    };
+  }
+
   static propTypes = {
     inputType: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -26,13 +33,6 @@ class TextInput extends Component {
     labelClassName: null,
     label: null,
   };
-
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      value: '',
-    };
-  }
 
   handleChange = (event) => {
     const { onChange } = this.props;

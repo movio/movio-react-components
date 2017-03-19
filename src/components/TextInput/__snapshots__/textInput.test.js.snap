@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`text-input-basic 1`] = `
+<fieldset
+  className="container"
+>
+  <input
+    className="input"
+    disabled={false}
+    id="sample-input"
+    onChange={[Function]}
+    placeholder="..."
+    type="text"
+    value=""
+  />
+</fieldset>
+`;
+
+exports[`text-input-custom-classname 1`] = `
+<fieldset
+  className="container"
+>
+  <input
+    className="test-class input"
+    disabled={false}
+    id="sample-input"
+    onChange={[Function]}
+    placeholder="..."
+    type="text"
+    value=""
+  />
+</fieldset>
+`;
+
+exports[`text-input-default-classname 1`] = `
+<fieldset
+  className="container"
+>
+  <input
+    className="input"
+    disabled={false}
+    id="sample-input"
+    onChange={[Function]}
+    placeholder="..."
+    type="text"
+    value=""
+  />
+</fieldset>
+`;
+
+exports[`text-input-label 1`] = `
+<fieldset
+  className="container"
+>
+  <label
+    className="label"
+    htmlFor="sample-input"
+  >
+    Label
+  </label>
+  <input
+    className="input"
+    disabled={false}
+    id="sample-input"
+    onChange={[Function]}
+    placeholder="..."
+    type="text"
+    value=""
+  />
+</fieldset>
+`;
