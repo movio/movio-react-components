@@ -8,7 +8,6 @@
   --font: var(--font-primary);
   --color-text-disabled: var(--color-neutral-b);
   --color-bg-disabled: var(--color-neutral-d);
-
   --color-bg-secondary: var(--color-primary-a);
   --color-bg-secondary-hover: var(--color-primary-c);
 
@@ -40,7 +39,6 @@
   @nest &:disabled {
     @apply --disabled-styles;
   }
-
 }
 
 .disabled {
