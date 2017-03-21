@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import classnames from 'classnames';
 
@@ -19,7 +20,7 @@ import { enhanceOverlay } from '../../enhancers';
 
 import styles from './scaffolding.css';
 
-const exampleCode = `const add = (a, b) => a + b;
+const exampleCode: string = `const add = (a, b) => a + b;
 const map = (fn, xs) => xs.map(fn);
 
 .container {
@@ -34,9 +35,9 @@ const map = (fn, xs) => xs.map(fn);
 }
 `;
 
-const ButtonWithTooltip = enhanceOverlay(Button);
+const ButtonWithTooltip: ReactClass<*> = enhanceOverlay(Button);
 
-const Scaffolding = () =>
+const Scaffolding = (): React$Element<*> =>
   <div className={styles.container}>
     <Header />
     <Sidebar items={['Introduction', 'Typography', 'Buttons']} />

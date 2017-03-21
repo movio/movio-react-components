@@ -1,6 +1,7 @@
-import React, { PropTypes, Component, cloneElement } from 'react';
+// @flow
+import React, { Component, cloneElement } from 'react';
 import TetherComponent from 'react-tether';
-import { uniqueId } from 'lodash';
+import { uniqueId, get } from 'lodash';
 
 const tracker = new WeakMap();
 
@@ -11,21 +12,28 @@ const TETHER_PLACEMENTS = {
   right: 'middle left',
 };
 
-const enhanceOverlay = ComposedComponent => class EnhancedOverlay extends Component {
+type OverlayEventHandler = (args?: any) => mixed;
 
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    delay: PropTypes.number,
-    display: PropTypes.bool,
-    overlay: PropTypes.element.isRequired,
-    trigger: PropTypes.oneOf(['hover', 'click']),
-    onEntered: PropTypes.func,
-    onExited: PropTypes.func,
-    onClick: PropTypes.func,
-    onMouseOver: PropTypes.func,
-    onMouseOut: PropTypes.func,
-    placement: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
-  };
+type Trigger = 'hover' | 'click';
+type Placement = 'top' | 'bottom' | 'left' | 'right';
+
+type Props = {
+  children: React$Element<*>,
+  delay: ?number,
+  display: ?boolean,
+  overlay: React$Element<*>,
+  trigger: Trigger,
+  onEntered: OverlayEventHandler,
+  onExited: OverlayEventHandler,
+  onClick: OverlayEventHandler,
+  onMouseOver: OverlayEventHandler,
+  onMouseOut: OverlayEventHandler,
+  placement: Placement,
+};
+
+const enhanceOverlay = (ComposedComponent: ReactClass<*>): ReactClass<*> => class EnhancedOverlay extends Component {
+
+  props: Props;
 
   static defaultProps = {
     display: false,
@@ -39,7 +47,7 @@ const enhanceOverlay = ComposedComponent => class EnhancedOverlay extends Compon
     onMouseOut: null,
   };
 
-  constructor(props, context) {
+  constructor(props: Props, context) {
     super(props, context);
     tracker.set(this, { timeoutId: 0 });
     this.state = {
@@ -63,7 +71,12 @@ const enhanceOverlay = ComposedComponent => class EnhancedOverlay extends Compon
 
   createTrackerTimeout = (_display, _delay) => setTimeout(() => { this.setState({ display: _display }); }, _delay);
 
-  clearTrackerTimout = _tracker => clearTimeout(_tracker.get(this).timeoutId);
+  clearTrackerTimout = (_tracker: WeakMap<*, *>) => {
+    const getOverlayTracker = _tracker.get(this);
+    if (getOverlayTracker) {
+      clearTimeout(getOverlayTracker.timeoutId);
+    }
+  }
 
   componentWillUnmount() {
     if (super.componentWillUnmount) {
@@ -124,7 +137,7 @@ const enhanceOverlay = ComposedComponent => class EnhancedOverlay extends Compon
           } = this.props;
     const { display } = this.state;
 
-    const overlayId = overlay.props.id || uniqueId('movio_rc_overlay');
+    const overlayId: string = get(overlay, 'props.id', uniqueId('movio_rc_overlay'));
     const extendedOverlay = cloneElement(overlay, { id: overlayId });
 
     const eventHandlers = {
