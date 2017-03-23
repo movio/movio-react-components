@@ -4,8 +4,8 @@
   "description": "Movio's React Component Lib",
   "scripts": {
     "start": "webpack-dev-server --progress --colors",
-    "test": "jest --config=jest.config.json",
-    "test:watch": "jest --config=jest.config.json --watchAll",
+    "test": "BABEL_ENV=test jest --config=jest.config.json",
+    "test:watch": "BABEL_ENV=test jest --config=jest.config.json --watchAll",
     "lint": "eslint src",
     "lint:style": "stylelint 'src/**/*.css'",
     "check": "yarn lint && yarn lint:style && yarn test"

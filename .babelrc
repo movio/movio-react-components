@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "react",
+    "flow",
+    ["latest", { "es2015": { "modules": false } }],
+    "stage-1"
+  ],
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
+}

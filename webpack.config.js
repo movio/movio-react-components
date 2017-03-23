@@ -33,12 +33,6 @@ module.exports = env => ({
             loader: 'babel-loader',
             options: {
               cacheDirectory: true,
-              presets: [
-                'react',
-                'flow',
-                'latest',
-                'stage-1',
-              ],
             },
           },
         ],
