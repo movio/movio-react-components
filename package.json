@@ -6,6 +6,8 @@
     "start": "webpack-dev-server --progress --colors",
     "test": "BABEL_ENV=test jest --config=jest.config.json",
     "test:watch": "BABEL_ENV=test jest --config=jest.config.json --watchAll",
+    "coverage": "flow-coverage-report -i 'src/**/*.js'",
+    "coverage:html": "flow-coverage-report -i 'src/**/*.js' -t html",
     "lint": "eslint src",
     "lint:style": "stylelint 'src/**/*.css'",
     "check": "yarn lint && yarn lint:style && yarn test"
@@ -55,6 +57,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "flow-bin": "^0.42.0",
+    "flow-coverage-report": "^0.3.0",
     "html-webpack-plugin": "^2.28.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^19.0.2",
