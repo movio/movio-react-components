@@ -1,29 +1,32 @@
-import React, { PropTypes } from 'react';
+// @flow
+import React from 'react';
 import classnames from 'classnames';
 
 import styles from './button.css';
 
-const Button = ({ className, onClick, disabled, children, ...props }) =>
-  <button
-    className={classnames(className, styles.button, { [styles.disabled]: disabled })}
-    onClick={onClick}
-    disabled={disabled === true}
-    {...props}
-  >
-    {children}
-  </button>;
+type ClickHandler = (args?: any) => mixed;
 
-Button.propTypes = {
-  className: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
-  disabled: PropTypes.bool,
-  children: PropTypes.node.isRequired,
+type Props = {
+  className?: string,
+  onClick: ClickHandler,
+  disabled?: boolean,
+  children?: ReactChildren,
 };
 
-Button.defaultProps = {
-  className: null,
-  disabled: false,
-};
+const Button = ({
+  className = '',
+  onClick,
+  disabled = false,
+  children,
+  ...props }: Props) =>
+    <button
+      className={classnames(className, styles.button, { [styles.disabled]: disabled })}
+      onClick={onClick}
+      disabled={disabled === true}
+      {...props}
+    >
+      {children}
+    </button>;
 
 export default Button;
 

@@ -1,23 +1,20 @@
-import React, { PropTypes } from 'react';
+// @flow
+import React from 'react';
 import classnames from 'classnames';
 
 import styles from './code.css';
 
-const Code = ({ className, code }) =>
+type Props = {
+  className?: string,
+  code: ReactChildren,
+};
+
+const Code = ({ className = '', code }: Props) =>
   <pre className={classnames(className, styles.container)}>
     <code className={styles.code}>
       {code}
     </code>
   </pre>;
-
-Code.propTypes = {
-  className: PropTypes.string,
-  code: PropTypes.string.isRequired,
-};
-
-Code.defaultProps = {
-  className: null,
-};
 
 export default Code;
 export {
