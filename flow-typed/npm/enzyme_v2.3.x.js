@@ -42,7 +42,7 @@ declare module 'enzyme' {
     state(key?: string): any;
     context(key?: string): any;
     props(): Object;
-    prop(key: string): any;
+    prop(key: string): mixed;
     key(): string;
     simulate(event: string, ...args: Array<any>): this;
     setState(state: Object): this;
