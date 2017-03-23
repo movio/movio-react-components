@@ -10,7 +10,7 @@
     "coverage:html": "flow-coverage-report -i 'src/**/*.js' -t html",
     "lint": "eslint src",
     "lint:style": "stylelint 'src/**/*.css'",
-    "check": "yarn lint && yarn lint:style && yarn test"
+    "check": "yarn lint && yarn lint:style && yarn test && yarn flow"
   },
   "repository": {
     "type": "git",
