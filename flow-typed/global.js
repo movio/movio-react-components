@@ -7,3 +7,6 @@ declare var module: {
     accept(path: ?string) : void;
   }
 };
+
+// React helper types
+type ReactChildren = React$Element<any> | string;
