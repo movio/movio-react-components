@@ -33,6 +33,12 @@ module.exports = env => ({
             loader: 'babel-loader',
             options: {
               cacheDirectory: true,
+              presets: [
+                'react',
+                'flow',
+                'latest',
+                'stage-1',
+              ],
             },
           },
         ],
@@ -65,7 +71,7 @@ module.exports = env => ({
     new HTMLWebpackPlugin({
       inject: true,
       template: path.resolve(ROOT_PATH, 'src/index.html'),
-      showErrors: true,
+      showErrors: false,
     }),
   ],
 
