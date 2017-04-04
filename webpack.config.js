@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
 
@@ -67,6 +68,7 @@ module.exports = env => ({
       template: path.resolve(ROOT_PATH, 'src/index.html'),
       showErrors: false,
     }),
+    new FriendlyErrorsWebpackPlugin(),
   ],
 
   devServer: {
