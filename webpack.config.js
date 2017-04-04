@@ -60,6 +60,10 @@ module.exports = env => ({
     ],
   },
 
+  resolve: {
+    modules: [path.resolve(ROOT_PATH, 'src'), path.resolve(ROOT_PATH, 'node_modules')],
+  },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),

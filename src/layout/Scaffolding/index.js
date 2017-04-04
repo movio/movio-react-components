@@ -2,21 +2,21 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import Header from '../Header';
-import Sidebar from '../Sidebar';
-import Content from '../Content';
-import ComponentGroup, { styles as cmpGroupStyles } from '../ComponentGroup';
+import Header from 'layout/Header';
+import Sidebar from 'layout/Sidebar';
+import Content from 'layout/Content';
+import ComponentGroup, { styles as cmpGroupStyles } from 'layout/ComponentGroup';
 
-import Button, { styles as btnStyles } from '../../components/Button';
-import H1 from '../../components/H1';
-import H2 from '../../components/H2';
-import H3, { styles as h3Styles } from '../../components/H3';
-import P from '../../components/P';
-import Code from '../../components/Code';
-import Tooltip from '../../components/Tooltip';
-import TextInput from '../../components/TextInput/';
+import Button, { styles as btnStyles } from 'components/Button';
+import H1 from 'components/H1';
+import H2 from 'components/H2';
+import H3, { styles as h3Styles } from 'components/H3';
+import P from 'components/P';
+import Code from 'components/Code';
+import Tooltip from 'components/Tooltip';
+import TextInput from 'components/TextInput/';
 
-import { enhanceOverlay } from '../../enhancers';
+import { enhanceOverlay } from 'enhancers';
 
 import styles from './scaffolding.css';
 
