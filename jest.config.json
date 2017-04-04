@@ -7,7 +7,9 @@
   "moduleNameMapper": {
     "\\.(css)$": "identity-obj-proxy"
   },
+  "collectCoverage": true,
+  "coverageDirectory": "coverage",
   "collectCoverageFrom": [
-    "src/**/*.js"
+    "src/components/**/*.js"
   ]
 }

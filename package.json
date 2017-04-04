@@ -3,14 +3,12 @@
   "version": "0.1.3",
   "description": "Movio's React Component Lib",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors",
+    "dev": "webpack-dev-server --progress --colors",
     "test": "BABEL_ENV=test jest --config=jest.config.json",
     "test:watch": "BABEL_ENV=test jest --config=jest.config.json --watchAll",
-    "coverage": "flow-coverage-report -i 'src/**/*.js'",
-    "coverage:html": "flow-coverage-report -i 'src/**/*.js' -t html",
-    "lint": "eslint src",
-    "lint:style": "stylelint 'src/**/*.css'",
-    "check": "yarn lint && yarn lint:style && yarn test && yarn flow"
+    "cov": "flow-coverage-report -i 'src/**/*.js' -t html && yarn test",
+    "flow:cov": "flow-coverage-report -i 'src/**/*.js'",
+    "vet": "yarn lint && yarn lint:style && yarn test && yarn flow"
   },
   "repository": {
     "type": "git",
