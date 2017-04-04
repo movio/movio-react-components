@@ -8,6 +8,8 @@
     "test:watch": "BABEL_ENV=test jest --config=jest.config.json --watchAll",
     "cov": "flow-coverage-report -i 'src/**/*.js' -t html && yarn test",
     "flow:cov": "flow-coverage-report -i 'src/**/*.js'",
+    "lint": "eslint src",
+    "lint:style": "stylelint 'src/**/*.css'",
     "vet": "yarn lint && yarn lint:style && yarn test && yarn flow"
   },
   "repository": {
