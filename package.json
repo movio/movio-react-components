@@ -10,7 +10,8 @@
     "flow:cov": "flow-coverage-report -i 'src/**/*.js'",
     "lint": "eslint src",
     "lint:style": "stylelint 'src/**/*.css'",
-    "vet": "yarn lint && yarn lint:style && yarn test && yarn flow"
+    "vet": "yarn lint && yarn lint:style && yarn test && yarn flow",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
   },
   "repository": {
     "type": "git",
@@ -51,8 +52,9 @@
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-prettier": "^2.1.1",
     "eslint-import-resolver-webpack": "^0.8.1",
-    "eslint-plugin-flowtype": "^2.33.0",
+    "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",

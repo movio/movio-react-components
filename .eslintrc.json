@@ -1,5 +1,10 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
   "env": {
     "browser": true,
     "jest": true
@@ -11,7 +16,6 @@
     "no-else-return": "off",
     "no-underscore-dangle": "off",
     "no-duplicate-imports": "off",
-    "max-len": ["error", 120],
     "no-unused-vars": ["error", {"args": "none"}],
     "no-unused-expressions": ["error", {"allowTernary": true}],
     "react/jsx-boolean-value": ["error", "always"],
@@ -33,13 +37,6 @@
         "everything-else",
         "render"
       ]
-    }],
-    "comma-dangle": ["error", {
-      "arrays": "always-multiline",
-      "objects": "always-multiline",
-      "imports": "always-multiline",
-      "exports": "always-multiline",
-      "functions": "ignore"
     }],
     "global-require": "off"
   },
