@@ -6,7 +6,7 @@ module.exports = {
     require('postcss-cssnext')({
       features: {
         rem: {
-          rootValue: '14px',
+          rootValue: '16px',
         },
       },
     }),

@@ -123,8 +123,8 @@
   --border-radius: 3px;
 
   /* Fonts */
-  --font-primary: var(--font-open-sans);
-  --font-secondary: var(--font-lato);
-  --font-code: var(--font-droid-sans-mono);
+  --font-primary: var(--font-avenir);
+  --font-secondary: var(--font-avenir-heavy-oblique);
+  --font-code: monospace;
 }
 

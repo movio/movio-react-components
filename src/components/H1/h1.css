@@ -1,7 +1,7 @@
 @import "variables.css";
 
 :root {
-  --h1-font-family: var(--font-lato);
+  --h1-font-family: var(--font-primary);
   --h1-font-size: 2.15rem;
   --h1-color: var(--color-primary);
 }

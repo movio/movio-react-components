@@ -4,23 +4,24 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
+const DEV_PORT = 8080;
+const resolve = p => path.resolve(ROOT_PATH, p);
 
 module.exports = env => ({
-
   context: path.resolve(ROOT_PATH, 'src'),
 
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
+    `webpack-dev-server/client?http://localhost:${DEV_PORT}`,
     'webpack/hot/only-dev-server',
     './index.js',
   ],
 
-  devtool: 'inline-source-map',
+  devtool: 'eval',
 
   output: {
     filename: 'bundle.js',
-    path: path.resolve(ROOT_PATH, 'build.dev'),
+    path: resolve('build.dev'),
     publicPath: '/',
   },
 
@@ -57,19 +58,32 @@ module.exports = env => ({
           { loader: 'postcss-loader' },
         ],
       },
+      {
+        test: /\.svg$/,
+        use: 'svg-url-loader',
+      },
+      {
+        test: /\.(png|jpe?g|gif)(\?.*)?$/,
+        loader: 'url-loader',
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+      },
     ],
   },
 
   resolve: {
-    modules: [path.resolve(ROOT_PATH, 'src'), path.resolve(ROOT_PATH, 'node_modules')],
+    modules: [resolve('src'), resolve('node_modules')],
   },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new HTMLWebpackPlugin({
       inject: true,
-      template: path.resolve(ROOT_PATH, 'src/index.html'),
+      template: resolve('src/index.html'),
       showErrors: false,
     }),
     new FriendlyErrorsWebpackPlugin(),
@@ -78,7 +92,11 @@ module.exports = env => ({
   devServer: {
     stats: 'minimal',
     hot: true,
-    contentBase: path.resolve(ROOT_PATH, 'build.dev'),
+    contentBase: resolve('build.dev'),
     publicPath: '/',
+    port: DEV_PORT,
+    host: 'localhost',
+    historyApiFallback: true,
+    noInfo: false,
   },
 });

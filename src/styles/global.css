@@ -5,6 +5,8 @@ html,
 body {
   font: 14px/1.5 var(--font-primary);
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 *,

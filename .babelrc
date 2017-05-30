@@ -2,10 +2,13 @@
   "presets": [
     "react",
     "flow",
-    ["latest", { "es2015": { "modules": false } }],
+    ["latest", { "es2015": { "modules": false, "loose": true } }],
     "stage-1"
   ],
   "env": {
+    "dev": {
+      "plugins": ["react-hot-loader/babel"]
+    },
     "test": {
       "plugins": ["transform-es2015-modules-commonjs"]
     }

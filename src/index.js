@@ -2,9 +2,9 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { AppContainer } from 'react-hot-loader';
-import Scaffolding from './layout/Scaffolding';
+import Scaffolding from 'layout/Scaffolding';
 
-import './styles/global.css';
+import 'styles/global.css';
 
 const render = (Component: ReactClass<*>): void => {
   ReactDOM.render(
@@ -18,7 +18,7 @@ const render = (Component: ReactClass<*>): void => {
 render(Scaffolding);
 
 if (module.hot) {
-  module.hot.accept('./layout/Scaffolding', () => {
+  module.hot.accept('layout/Scaffolding', () => {
     render(Scaffolding);
   });
 }
