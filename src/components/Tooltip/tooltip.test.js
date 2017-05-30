@@ -29,4 +29,3 @@ describe('<Tooltip />', () => {
     expect(tree).toMatchSnapshot('tooltip-default-classname');
   });
 });
-

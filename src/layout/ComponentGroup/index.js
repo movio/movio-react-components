@@ -5,13 +5,14 @@ import H2 from '../../components/H2';
 
 import styles from './component-group.css';
 
-const ComponentGroup = ({ className, children, title, childrenClassName }) =>
+const ComponentGroup = ({ className, children, title, childrenClassName }) => (
   <div className={classnames(className, styles.container)}>
     <H2 className={styles.title}>{title}</H2>
     <div className={classnames(childrenClassName, styles.childrenContainer)}>
       {children}
     </div>
-  </div>;
+  </div>
+);
 
 ComponentGroup.propTypes = {
   className: PropTypes.string,
@@ -26,7 +27,4 @@ ComponentGroup.defaultProps = {
 };
 
 export default ComponentGroup;
-export {
-  styles,
-};
-
+export { styles };

@@ -3,10 +3,11 @@ import classnames from 'classnames';
 
 import styles from './h3.css';
 
-const H3 = ({ children, className }) =>
+const H3 = ({ children, className }) => (
   <h3 className={classnames(className, styles.h3)}>
     {children}
-  </h3>;
+  </h3>
+);
 
 H3.propTypes = {
   className: PropTypes.string,
@@ -18,7 +19,4 @@ H3.defaultProps = {
 };
 
 export default H3;
-export {
-  styles,
-};
-
+export { styles };

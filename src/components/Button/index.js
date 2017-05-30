@@ -18,19 +18,20 @@ const Button = ({
   onClick,
   disabled = false,
   children,
-  ...props }: Props) =>
-    <button
-      className={classnames(className, styles.button, { [styles.disabled]: disabled })}
-      onClick={onClick}
-      disabled={disabled === true}
-      {...props}
-    >
-      {children}
-    </button>;
+  ...props
+}: Props) => (
+  <button
+    className={classnames(className, styles.button, {
+      [styles.disabled]: disabled,
+    })}
+    onClick={onClick}
+    disabled={disabled === true}
+    {...props}
+  >
+    {children}
+  </button>
+);
 
 export default Button;
 
-export {
-  styles,
-};
-
+export { styles };

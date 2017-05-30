@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import styles from './textInput.css';
 
 class TextInput extends Component {
-
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -34,20 +33,20 @@ class TextInput extends Component {
     label: null,
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { onChange } = this.props;
     const value = event.target.value;
     onChange(value, event);
     this.setState({
       value: event.target.value,
     });
-  }
+  };
 
   renderLabel = (label, inputId) => {
     const { labelClassName } = this.props;
     const labelClassList = classnames(labelClassName, styles.label);
-    return <label className={labelClassList} htmlFor={inputId} >{label}</label>;
-  }
+    return <label className={labelClassList} htmlFor={inputId}>{label}</label>;
+  };
 
   render() {
     const {
@@ -78,10 +77,7 @@ class TextInput extends Component {
       </fieldset>
     );
   }
-
 }
 
 export default TextInput;
-export {
-  styles,
-};
+export { styles };

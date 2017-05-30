@@ -5,7 +5,9 @@ import classnames from 'classnames';
 import Header from 'layout/Header';
 import Sidebar from 'layout/Sidebar';
 import Content from 'layout/Content';
-import ComponentGroup, { styles as cmpGroupStyles } from 'layout/ComponentGroup';
+import ComponentGroup, {
+  styles as cmpGroupStyles,
+} from 'layout/ComponentGroup';
 
 import Button, { styles as btnStyles } from 'components/Button';
 import H1 from 'components/H1';
@@ -37,7 +39,7 @@ const map = (fn, xs) => xs.map(fn);
 
 const ButtonWithTooltip: ReactClass<*> = enhanceOverlay(Button);
 
-const Scaffolding = (): React$Element<*> =>
+const Scaffolding = (): React$Element<*> => (
   <div className={styles.container}>
     <Header />
     <Sidebar items={['Introduction', 'Typography', 'Buttons']} />
@@ -52,7 +54,9 @@ const Scaffolding = (): React$Element<*> =>
         <H1 className={styles.type}>H1 - Main heading</H1>
         <H2 className={styles.type}>H2 - Secondary heading</H2>
         <H3 className={styles.type}>H3 - Smaller heading</H3>
-        <H3 className={classnames(styles.type, h3Styles.secondary)}>H3 - Variation</H3>
+        <H3 className={classnames(styles.type, h3Styles.secondary)}>
+          H3 - Variation
+        </H3>
         <P className={cmpGroupStyles.blockType}>
           Paragraph - At vero eos et accusamus et iusto odio dignissimos ducimus
           qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
@@ -60,20 +64,25 @@ const Scaffolding = (): React$Element<*> =>
           similique sunt in culpa qui officia deserunt mollitia animi, id est laborum
           et dolorum fuga. Et harum quidem rerum facilis est et expedita distinction.
         </P>
-        <Code
-          className={cmpGroupStyles.blockType}
-          code={exampleCode}
-        />
+        <Code className={cmpGroupStyles.blockType} code={exampleCode} />
       </ComponentGroup>
       <ComponentGroup title="Buttons">
-        <Button onClick={() => {}} className={cmpGroupStyles.nonFw}>Button</Button>
+        <Button onClick={() => {}} className={cmpGroupStyles.nonFw}>
+          Button
+        </Button>
         <Button
           onClick={() => {}}
           className={classnames(btnStyles.secondary, cmpGroupStyles.nonFw)}
         >
           Secondary
         </Button>
-        <Button onClick={() => {}} className={cmpGroupStyles.nonFw} disabled={true}>Disabled</Button>
+        <Button
+          onClick={() => {}}
+          className={cmpGroupStyles.nonFw}
+          disabled={true}
+        >
+          Disabled
+        </Button>
         <Button
           onClick={() => {}}
           className={classnames(btnStyles.loading, cmpGroupStyles.nonFw)}
@@ -111,7 +120,7 @@ const Scaffolding = (): React$Element<*> =>
         />
       </ComponentGroup>
     </Content>
-  </div>;
+  </div>
+);
 
 export default Scaffolding;
-

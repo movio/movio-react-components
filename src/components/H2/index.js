@@ -9,13 +9,11 @@ type Props = {
   className?: string,
 };
 
-const H2 = ({ children, className = '' }: Props) =>
+const H2 = ({ children, className = '' }: Props) => (
   <h2 className={classnames(className, styles.h2)}>
     {children}
-  </h2>;
+  </h2>
+);
 
 export default H2;
-export {
-  styles,
-};
-
+export { styles };

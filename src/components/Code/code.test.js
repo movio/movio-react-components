@@ -16,7 +16,9 @@ describe('<Code />', () => {
   });
 
   it('should append a className to the default, if provided', () => {
-    const component = <Code className="test-class" code="const a = (b) => b + 1;" />;
+    const component = (
+      <Code className="test-class" code="const a = (b) => b + 1;" />
+    );
     const wrapper = shallow(component);
     expect(wrapper.prop('className')).toEqual(`test-class ${styles.container}`);
     const tree = renderer.create(component).toJSON();
@@ -36,4 +38,3 @@ describe('<Code />', () => {
     expect(wrapper.find('code').text()).toEqual('const a = (b) => b + 1;');
   });
 });
-

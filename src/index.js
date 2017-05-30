@@ -22,4 +22,3 @@ if (module.hot) {
     render(Scaffolding);
   });
 }
-

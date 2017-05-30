@@ -17,7 +17,9 @@ describe('<Button />', () => {
   });
 
   it('should append a className to the default, if provided', () => {
-    const component = <Button className="test-class" onClick={noop}>Movio Button</Button>;
+    const component = (
+      <Button className="test-class" onClick={noop}>Movio Button</Button>
+    );
     const wrapper = shallow(component);
     expect(wrapper.prop('className')).toEqual(`test-class ${styles.button}`);
     const tree = renderer.create(component).toJSON();
@@ -33,9 +35,13 @@ describe('<Button />', () => {
   });
 
   it('should add a disabled class to the button, if disabled', () => {
-    const component = <Button onClick={noop} disabled={true}>Disabled Button</Button>;
+    const component = (
+      <Button onClick={noop} disabled={true}>Disabled Button</Button>
+    );
     const wrapper = shallow(component);
-    expect(wrapper.prop('className')).toEqual(`${styles.button} ${styles.disabled}`);
+    expect(wrapper.prop('className')).toEqual(
+      `${styles.button} ${styles.disabled}`
+    );
     const tree = renderer.create(component).toJSON();
     expect(tree).toMatchSnapshot('button-disabled');
   });

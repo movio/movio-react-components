@@ -3,12 +3,17 @@ import classnames from 'classnames';
 
 import styles from './logo.css';
 
-const Logo = ({ className, svgClassName }) =>
+const Logo = ({ className, svgClassName }) => (
   <div className={classnames(className, styles.container)}>
-    <svg width="92px" height="17px" viewBox="0 0 92 17" version="1.1" className={classnames(svgClassName, styles.svg)}>
+    <svg
+      width="92px"
+      height="17px"
+      viewBox="0 0 92 17"
+      version="1.1"
+      className={classnames(svgClassName, styles.svg)}
+    >
       <g fillRule="evenodd">
-        <path
-          d="M74.9142857,8.37000307 C74.9142857,3.75492798 78.7461183,0 83.4567782,0 C88.1674381,0 92,3.75492798
+        <path d="M74.9142857,8.37000307 C74.9142857,3.75492798 78.7461183,0 83.4567782,0 C88.1674381,0 92,3.75492798
         92,8.37000307 C92,12.9822205 88.1674381,16.7342909 83.4567782,16.7342909 C78.7461183,16.7342909
         74.9142857,12.9822205 74.9142857,8.37000307 Z M65.7142857,1.91598361 L65.7142857,15.0861936
         C65.7142857,16.1414361 66.5922491,17 67.6709957,17 C68.7475197,17 69.6232604,16.1414361 69.6232604,15.0861936
@@ -42,12 +47,11 @@ const Logo = ({ className, svgClassName }) =>
         83.4567782,3.76993054 Z M30.8853496,3.76993054 C28.2977322,3.76993054 26.1914641,5.83314059
         26.1914641,8.37000307 C26.1914641,10.9040079 28.2977322,12.9657892 30.8853496,12.9657892 C33.4744257,12.9657892
         35.5799645,10.9040079 35.5799645,8.37000307 C35.5799645,5.83314059 33.4744257,3.76993054 30.8853496,3.76993054
-        Z"
-        >
-        </path>
+        Z" />
       </g>
     </svg>
-  </div>;
+  </div>
+);
 
 Logo.propTypes = {
   className: PropTypes.string,
@@ -60,7 +64,4 @@ Logo.defaultProps = {
 };
 
 export default Logo;
-export {
-  styles,
-};
-
+export { styles };

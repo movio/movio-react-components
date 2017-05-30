@@ -3,10 +3,11 @@ import classnames from 'classnames';
 
 import styles from './tooltip.css';
 
-const Tooltip = ({ className, children }) =>
+const Tooltip = ({ className, children }) => (
   <div className={classnames(className, styles.container)}>
     {children}
-  </div>;
+  </div>
+);
 
 Tooltip.propTypes = {
   className: PropTypes.string,
@@ -18,7 +19,4 @@ Tooltip.defaultProps = {
 };
 
 export default Tooltip;
-export {
-  styles,
-};
-
+export { styles };

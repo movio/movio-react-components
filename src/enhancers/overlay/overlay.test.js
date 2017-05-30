@@ -39,7 +39,9 @@ describe('enhanceOverlay', () => {
   });
 
   it('should set up default props on the enhanced component, if not provided', () => {
-    wrapper = mount(<EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>);
+    wrapper = mount(
+      <EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>
+    );
     expect(wrapper.props().delay).toEqual(0);
     expect(wrapper.props().display).toEqual(false);
     expect(wrapper.props().placement).toEqual('bottom');
@@ -47,7 +49,9 @@ describe('enhanceOverlay', () => {
   });
 
   it('should render children', () => {
-    wrapper = mount(<EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>);
+    wrapper = mount(
+      <EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>
+    );
     expect(wrapper.find('div')).toHaveLength(1);
     expect(elLookup('.tether-element').length).toEqual(0);
     wrapper.setState({ display: true });
@@ -55,14 +59,18 @@ describe('enhanceOverlay', () => {
   });
 
   it('should create a tether element when triggered', () => {
-    wrapper = mount(<EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>);
+    wrapper = mount(
+      <EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>
+    );
     expect(elLookup('.tether-element').length).toEqual(0);
     wrapper.setState({ display: true });
     expect(elLookup('.tether-element').length).toEqual(1);
   });
 
   it('should set display state when it receives a new display prop', () => {
-    wrapper = mount(<EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>);
+    wrapper = mount(
+      <EnhancedComponent overlay={Tooltip}>EnhancedComponent</EnhancedComponent>
+    );
     wrapper.setProps({ display: true });
     expect(wrapper.state().display).toEqual(true);
     wrapper.setProps({ display: false });
@@ -71,10 +79,7 @@ describe('enhanceOverlay', () => {
 
   it('should correctly delay displaying if "delay" is set', () => {
     wrapper = mount(
-      <EnhancedComponent
-        overlay={Tooltip}
-        delay={1000}
-      >
+      <EnhancedComponent overlay={Tooltip} delay={1000}>
         EnhancedComponent
       </EnhancedComponent>
     );

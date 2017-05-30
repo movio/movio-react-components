@@ -16,7 +16,9 @@ describe('<TextInput />', () => {
   });
 
   it('should optionally render a <label> element, if provided', () => {
-    const component = <TextInput name="sample-input" onChange={noop} label="Label" />;
+    const component = (
+      <TextInput name="sample-input" onChange={noop} label="Label" />
+    );
     const wrapper = shallow(component);
     expect(wrapper.find('label')).toHaveLength(1);
     const tree = renderer.create(component).toJSON();
@@ -24,9 +26,13 @@ describe('<TextInput />', () => {
   });
 
   it('should append a className to the default, if provided', () => {
-    const component = <TextInput name="sample-input" className="test-class" onChange={noop} />;
+    const component = (
+      <TextInput name="sample-input" className="test-class" onChange={noop} />
+    );
     const wrapper = shallow(component);
-    expect(wrapper.find('input').prop('className')).toEqual(`test-class ${styles.input}`);
+    expect(wrapper.find('input').prop('className')).toEqual(
+      `test-class ${styles.input}`
+    );
     const tree = renderer.create(component).toJSON();
     expect(tree).toMatchSnapshot('text-input-custom-classname');
   });

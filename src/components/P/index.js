@@ -3,10 +3,11 @@ import classnames from 'classnames';
 
 import styles from './p.css';
 
-const P = ({ className, children }) =>
+const P = ({ className, children }) => (
   <p className={classnames(className, styles.p)}>
     {children}
-  </p>;
+  </p>
+);
 
 P.propTypes = {
   className: PropTypes.string,
@@ -18,6 +19,4 @@ P.defaultProps = {
 };
 
 export default P;
-export {
-  styles,
-};
+export { styles };

@@ -9,14 +9,13 @@ type Props = {
   code: ReactChildren,
 };
 
-const Code = ({ className = '', code }: Props) =>
+const Code = ({ className = '', code }: Props) => (
   <pre className={classnames(className, styles.container)}>
     <code className={styles.code}>
       {code}
     </code>
-  </pre>;
+  </pre>
+);
 
 export default Code;
-export {
-  styles,
-};
+export { styles };
