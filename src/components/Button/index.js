@@ -11,6 +11,8 @@ type Props = {
   onClick: ClickHandler,
   disabled?: boolean,
   children?: ReactChildren,
+  secondary?: boolean,
+  loading?: boolean,
 };
 
 const Button = ({
@@ -18,20 +20,28 @@ const Button = ({
   onClick,
   disabled = false,
   children,
+  secondary,
+  loading,
   ...props
-}: Props) => (
-  <button
-    className={classnames(className, styles.button, {
-      [styles.disabled]: disabled,
-    })}
-    onClick={onClick}
-    disabled={disabled === true}
-    {...props}
-  >
-    {children}
-  </button>
-);
+}: Props) => {
+  const btnClasses = classnames({
+    [styles.base]: true,
+    [styles.button]: !disabled,
+    [styles.disabled]: disabled,
+    [styles.secondary]: secondary,
+    [styles.loading]: loading,
+  });
+  return (
+    <button
+      className={btnClasses}
+      onClick={onClick}
+      disabled={disabled === true}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
 
 export default Button;
-
 export { styles };
