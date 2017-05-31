@@ -1,9 +1,15 @@
-import React, { PropTypes } from 'react';
+// @flow
+import React from 'react';
 import classnames from 'classnames';
 
 import styles from './logo.css';
 
-const Logo = ({ className, svgClassName }) => (
+type Props = {
+  className?: string,
+  svgClassName?: string,
+};
+
+const Logo = ({ className = '', svgClassName = '' }: Props) => (
   <div className={classnames(className, styles.container)}>
     <svg
       width="92px"
@@ -52,16 +58,6 @@ const Logo = ({ className, svgClassName }) => (
     </svg>
   </div>
 );
-
-Logo.propTypes = {
-  className: PropTypes.string,
-  svgClassName: PropTypes.string,
-};
-
-Logo.defaultProps = {
-  className: null,
-  svgClassName: null,
-};
 
 export default Logo;
 export { styles };

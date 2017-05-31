@@ -1,27 +1,35 @@
-import React, { Component, PropTypes } from 'react';
+// @flow
+import React, { Component } from 'react';
 import classnames from 'classnames';
 
 import styles from './textInput.css';
 
+type Props = {
+  inputType: string,
+  name: string,
+  onChange: (value: string, event: SyntheticInputEvent) => void,
+  placeholder: string,
+  className: ?string,
+  containerClassName: ?string,
+  labelClassName: ?string,
+  disabled: boolean,
+  label: ?string,
+};
+
+type State = {
+  value: string,
+};
+
 class TextInput extends Component {
-  constructor(props, context) {
+  props: Props;
+  state: State;
+
+  constructor(props: Props, context: *) {
     super(props, context);
     this.state = {
       value: '',
     };
   }
-
-  static propTypes = {
-    inputType: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    placeholder: PropTypes.string,
-    className: PropTypes.string,
-    containerClassName: PropTypes.string,
-    labelClassName: PropTypes.string,
-    disabled: PropTypes.bool,
-    label: PropTypes.string,
-  };
 
   static defaultProps = {
     inputType: 'text',
@@ -33,7 +41,7 @@ class TextInput extends Component {
     label: null,
   };
 
-  handleChange = event => {
+  handleChange = (event: SyntheticInputEvent) => {
     const { onChange } = this.props;
     const value = event.target.value;
     onChange(value, event);
@@ -42,10 +50,10 @@ class TextInput extends Component {
     });
   };
 
-  renderLabel = (label, inputId) => {
+  renderLabel = (label: string, name: string) => {
     const { labelClassName } = this.props;
     const labelClassList = classnames(labelClassName, styles.label);
-    return <label className={labelClassList} htmlFor={inputId}>{label}</label>;
+    return <label className={labelClassList} htmlFor={name}>{label}</label>;
   };
 
   render() {

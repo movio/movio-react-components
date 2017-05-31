@@ -1,22 +1,19 @@
-import React, { PropTypes } from 'react';
+// @flow
+import React from 'react';
 import classnames from 'classnames';
 
 import styles from './tooltip.css';
 
-const Tooltip = ({ className, children }) => (
+type Props = {
+  className: string,
+  children?: ReactChildren,
+};
+
+const Tooltip = ({ className = '', children }: Props) => (
   <div className={classnames(className, styles.container)}>
     {children}
   </div>
 );
-
-Tooltip.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node.isRequired,
-};
-
-Tooltip.defaultProps = {
-  className: null,
-};
 
 export default Tooltip;
 export { styles };
