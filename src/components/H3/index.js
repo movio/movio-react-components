@@ -9,7 +9,7 @@ type Props = {
   className?: string,
 };
 
-const H3 = ({ children, className = '' }: Props) => (
+const H3 = ({ className, children }: Props) => (
   <h3 className={classnames(className, styles.h3)}>
     {children}
   </h3>

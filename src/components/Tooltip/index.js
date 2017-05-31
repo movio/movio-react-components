@@ -5,11 +5,11 @@ import classnames from 'classnames';
 import styles from './tooltip.css';
 
 type Props = {
-  className: string,
+  className?: string,
   children?: ReactChildren,
 };
 
-const Tooltip = ({ className = '', children }: Props) => (
+const Tooltip = ({ className, children }: Props) => (
   <div className={classnames(className, styles.container)}>
     {children}
   </div>

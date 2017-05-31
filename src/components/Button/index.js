@@ -14,7 +14,7 @@ type Props = {
 };
 
 const Button = ({
-  className = '',
+  className,
   onClick,
   disabled = false,
   children,

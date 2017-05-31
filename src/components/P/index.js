@@ -9,7 +9,7 @@ type Props = {
   children?: ReactChildren,
 };
 
-const P = ({ className = '', children }: Props) => (
+const P = ({ className, children }: Props) => (
   <p className={classnames(className, styles.p)}>
     {children}
   </p>

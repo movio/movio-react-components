@@ -5,15 +5,15 @@ import classnames from 'classnames';
 import styles from './textInput.css';
 
 type Props = {
-  inputType: string,
+  inputType?: string,
   name: string,
   onChange: (value: string, event: SyntheticInputEvent) => void,
   placeholder: string,
-  className: ?string,
-  containerClassName: ?string,
-  labelClassName: ?string,
+  className?: string,
+  containerClassName?: string,
+  labelClassName?: string,
   disabled: boolean,
-  label: ?string,
+  label?: string,
 };
 
 type State = {
@@ -35,10 +35,6 @@ class TextInput extends Component {
     inputType: 'text',
     placeholder: '...',
     disabled: false,
-    className: null,
-    containerClassName: null,
-    labelClassName: null,
-    label: null,
   };
 
   handleChange = (event: SyntheticInputEvent) => {

@@ -9,7 +9,7 @@ type Props = {
   svgClassName?: string,
 };
 
-const Logo = ({ className = '', svgClassName = '' }: Props) => (
+const Logo = ({ className, svgClassName }: Props) => (
   <div className={classnames(className, styles.container)}>
     <svg
       width="92px"
