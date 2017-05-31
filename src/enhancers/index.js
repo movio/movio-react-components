@@ -1,1 +1,0 @@
-export enhanceOverlay from './overlay';

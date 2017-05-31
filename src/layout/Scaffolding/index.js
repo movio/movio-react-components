@@ -15,10 +15,7 @@ import H2 from 'components/H2';
 import H3, { styles as h3Styles } from 'components/H3';
 import P from 'components/P';
 import Code from 'components/Code';
-import Tooltip from 'components/Tooltip';
 import TextInput from 'components/TextInput/';
-
-import { enhanceOverlay } from 'enhancers';
 
 import styles from './scaffolding.css';
 
@@ -36,8 +33,6 @@ const map = (fn, xs) => xs.map(fn);
   color: var(--color-text);
 }
 `;
-
-const ButtonWithTooltip: ReactClass<*> = enhanceOverlay(Button);
 
 const Scaffolding = (): React$Element<*> => (
   <div className={styles.container}>
@@ -89,13 +84,6 @@ const Scaffolding = (): React$Element<*> => (
         >
           Loading Button
         </Button>
-        <ButtonWithTooltip
-          onClick={() => {}}
-          placement="bottom"
-          overlay={<Tooltip>Hi i am tooltip!</Tooltip>}
-        >
-          Tooltip
-        </ButtonWithTooltip>
       </ComponentGroup>
       <ComponentGroup title="Form Elements">
         <TextInput
