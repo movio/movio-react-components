@@ -9,4 +9,4 @@ declare var module: {
 };
 
 // React helper types
-type ReactChildren = React$Element<any> | string;
+type ReactChildren = React$Element<*> | string;
