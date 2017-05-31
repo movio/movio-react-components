@@ -39,20 +39,21 @@ const cssContent = `@import "variables.css";
 `;
 
 const jsFileName = 'index.js';
-const jsContent = `import React, { PropTypes } from 'react';
+const jsContent = `// @flow
+import React from 'react';
 import classnames from 'classnames';
 
 import styles from './${camelCaseName}.css';
 
-const ${capName} = ({ className, children }) =>
+type Props = {
+  className: ?string,
+  children?: ReactChildren,
+};
+
+const ${capName} = ({ className, children }: Props) =>
   <div className={classnames(className, styles.container)}>
     {children}
   </div>;
-
-${capName}.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node.isRequired,
-};
 
 export default ${capName};
 export {
