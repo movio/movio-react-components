@@ -10,6 +10,7 @@
   "collectCoverage": true,
   "coverageDirectory": "coverage",
   "collectCoverageFrom": [
-    "src/components/**/*.js"
+    "src/components/**/*.js",
+    "!src/components/**/*.stories.js"
   ]
 }
