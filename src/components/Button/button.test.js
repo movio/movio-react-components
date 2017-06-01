@@ -20,7 +20,9 @@ describe('<Button />', () => {
       <Button className="test-class" onClick={noop}>Movio Button</Button>
     );
     const wrapper = shallow(component);
-    expect(wrapper.prop('className')).toEqual(`test-class ${styles.button}`);
+    expect(wrapper.prop('className')).toEqual(
+      `${styles.base} ${styles.button} test-class`
+    );
     const tree = renderer.create(component).toJSON();
     expect(tree).toMatchSnapshot('button-custom-classname');
   });
@@ -28,7 +30,9 @@ describe('<Button />', () => {
   it('should use the default className from the stylesheet, if not provided', () => {
     const component = <Button onClick={noop}>Movio Button</Button>;
     const wrapper = shallow(component);
-    expect(wrapper.prop('className')).toEqual(styles.button);
+    expect(wrapper.prop('className')).toEqual(
+      `${styles.base} ${styles.button}`
+    );
     const tree = renderer.create(component).toJSON();
     expect(tree).toMatchSnapshot('button-default-classname');
   });
@@ -39,7 +43,7 @@ describe('<Button />', () => {
     );
     const wrapper = shallow(component);
     expect(wrapper.prop('className')).toEqual(
-      `${styles.button} ${styles.disabled}`
+      `${styles.base} ${styles.disabled}`
     );
     const tree = renderer.create(component).toJSON();
     expect(tree).toMatchSnapshot('button-disabled');

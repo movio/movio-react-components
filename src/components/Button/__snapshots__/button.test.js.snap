@@ -2,7 +2,7 @@
 
 exports[`button-children-text 1`] = `
 <button
-  className="button"
+  className="base button"
   disabled={false}
   onClick={[Function]}
 >
@@ -12,7 +12,7 @@ exports[`button-children-text 1`] = `
 
 exports[`button-custom-classname 1`] = `
 <button
-  className="test-class button"
+  className="base button test-class"
   disabled={false}
   onClick={[Function]}
 >
@@ -22,7 +22,7 @@ exports[`button-custom-classname 1`] = `
 
 exports[`button-default-classname 1`] = `
 <button
-  className="button"
+  className="base button"
   disabled={false}
   onClick={[Function]}
 >
@@ -32,7 +32,7 @@ exports[`button-default-classname 1`] = `
 
 exports[`button-disabled 1`] = `
 <button
-  className="button disabled"
+  className="base disabled"
   disabled={true}
   onClick={[Function]}
 >

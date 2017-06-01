@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import Button from './index';
+import Button, { styles } from './index';
 
 const clickHandler = action('click');
 
@@ -17,4 +17,7 @@ storiesOf('Button', module)
   ))
   .add('loading', () => (
     <Button onClick={clickHandler} loading={true}>Loading</Button>
+  ))
+  .add('custom class', () => (
+    <Button onClick={clickHandler} className={styles.loading}>Custom</Button>
   ));

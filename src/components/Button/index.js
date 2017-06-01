@@ -24,13 +24,16 @@ const Button = ({
   loading,
   ...props
 }: Props) => {
-  const btnClasses = classnames({
-    [styles.base]: true,
-    [styles.button]: !disabled,
-    [styles.disabled]: disabled,
-    [styles.secondary]: secondary,
-    [styles.loading]: loading,
-  });
+  const btnClasses = classnames(
+    {
+      [styles.base]: true,
+      [styles.button]: !disabled,
+      [styles.disabled]: disabled,
+      [styles.secondary]: secondary,
+      [styles.loading]: loading,
+    },
+    className
+  );
   return (
     <button
       className={btnClasses}
