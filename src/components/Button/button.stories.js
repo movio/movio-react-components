@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
-import Button, { styles } from './index';
+import Button from './index';
 
 import scaffoldingStyles from '../../../.storybook/scaffolding.css';
 import utilStyles from '../../../.storybook/utils.css';
@@ -27,7 +27,7 @@ stories
     <Button onClick={clickHandler} loading={true}>Loading</Button>
   ))
   .add('custom class', () => (
-    <Button onClick={clickHandler} className={styles.loading}>Custom</Button>
+    <Button onClick={clickHandler} className={utilStyles.small}>Custom</Button>
   ))
   .add('all', () => (
     <div className={scaffoldingStyles.horizontalContainer}>
@@ -37,7 +37,9 @@ stories
       </Button>
       <Button onClick={clickHandler} disabled={true}>Disabled</Button>
       <Button onClick={clickHandler} loading={true}>Loading</Button>
-      <Button onClick={clickHandler} className={styles.loading}>Custom</Button>
+      <Button onClick={clickHandler} className={utilStyles.small}>
+        Custom
+      </Button>
     </div>
   ))
   .add('with knobs', () => (
@@ -51,6 +53,8 @@ stories
         {
           [utilStyles.red]: 'Red',
           [utilStyles.green]: 'Green',
+          [utilStyles.small]: 'Small',
+          [utilStyles.large]: 'Large',
           0: 'None',
         },
         0
