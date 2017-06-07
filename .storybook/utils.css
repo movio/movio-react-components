@@ -5,3 +5,11 @@
 .green {
   background-color: green;
 }
+
+.large {
+  font-size: 2rem;
+}
+
+.small {
+  font-size: 0.75rem;
+}
