@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import Code from './index';
+import Code from '../src/components/Code/index';
 
-import utilStyles from '../../../.storybook/utils.css';
+import utilStyles from '../.storybook/utils.css';
 
 const stories = storiesOf('Code', module);
 

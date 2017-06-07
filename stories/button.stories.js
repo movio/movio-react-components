@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
-import Button from './index';
+import Button from '../src/components/Button/index';
 
-import scaffoldingStyles from '../../../.storybook/scaffolding.css';
-import utilStyles from '../../../.storybook/utils.css';
+import scaffoldingStyles from '../.storybook/scaffolding.css';
+import utilStyles from '../.storybook/utils.css';
 
 const clickHandler = action('click');
 
