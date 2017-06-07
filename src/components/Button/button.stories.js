@@ -1,13 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import Button, { styles } from './index';
 
 import scaffoldingStyles from '../../../.storybook/scaffolding.css';
+import utilStyles from '../../../.storybook/utils.css';
 
 const clickHandler = action('click');
 
-storiesOf('Button', module)
+const stories = storiesOf('Button', module);
+
+stories.addDecorator(withKnobs);
+
+stories
   .add('primary', () => <Button onClick={clickHandler}>Primary</Button>)
   .add('secondary', () => (
     <Button onClick={clickHandler} secondary={true}>
@@ -33,4 +39,23 @@ storiesOf('Button', module)
       <Button onClick={clickHandler} loading={true}>Loading</Button>
       <Button onClick={clickHandler} className={styles.loading}>Custom</Button>
     </div>
+  ))
+  .add('with knobs', () => (
+    <Button
+      onClick={clickHandler}
+      disabled={boolean('Disabled', false)}
+      secondary={boolean('Secondary', false)}
+      loading={boolean('Loading State', false)}
+      className={select(
+        'Custom Clasnames',
+        {
+          [utilStyles.red]: 'Red',
+          [utilStyles.green]: 'Green',
+          0: 'None',
+        },
+        0
+      )}
+    >
+      {text('Label', 'Button')}
+    </Button>
   ));
