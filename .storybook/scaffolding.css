@@ -1,3 +1,5 @@
+@import "variables.css";
+
 .horizontal-container {
   display: block;
 
@@ -14,4 +16,9 @@
     width: 100%;
     margin: 0 0 0.75rem;
   }
+}
+
+.logo-container {
+  background-color: var(--color-primary-8);
+  padding: 1rem;
 }
