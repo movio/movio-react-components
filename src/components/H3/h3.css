@@ -2,13 +2,19 @@
 
 :root {
   --secondary-color: var(--color-neutral-a);
+  --secondary-font-family: var(--font-secondary);
+  --h3-font-family: var(--font-primary);
+  --h3-font-size: 1rem;
+  --h3-color: var(--color-neutral-2);
 }
 
 .h3 {
-  font-size: 1rem;
+  font-family: var(--h3-font-family);
+  font-size: var(--h3-font-size);
   font-weight: 600;
 }
 
 .secondary {
+  font-family: var(--secondary-font-family);
   color: var(--secondary-color);
 }

@@ -6,3 +6,12 @@
     margin-bottom: 0.5rem;
   }
 }
+
+.vertical-container {
+  display: block;
+
+  & > * {
+    width: 100%;
+    margin: 0 0 0.75rem;
+  }
+}

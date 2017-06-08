@@ -6,11 +6,16 @@ import styles from './h3.css';
 
 type Props = {
   children?: ReactChildren,
-  className?: string,
+  className: string,
+  secondary: boolean,
 };
 
-const H3 = ({ className, children }: Props) => (
-  <h3 className={classnames(className, styles.h3)}>
+const H3 = ({ className = '', secondary = false, children }: Props) => (
+  <h3
+    className={classnames(className, styles.h3, {
+      [styles.secondary]: secondary,
+    })}
+  >
     {children}
   </h3>
 );

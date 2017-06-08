@@ -1,9 +1,17 @@
 @import "variables.css";
 
+:root {
+  --p-color: var(--color-neutral-3);
+  --p-font-size: 1rem;
+  --p-font-family: var(--font-primary);
+}
+
 .p {
+  font-family: var(--p-font-family);
+  font-size: var(--p-font-size);
   line-height: 1.5;
   margin: 0;
   padding: 0;
-  color: var(--color-neutral-0);
+  color: var(--p-color);
 }
 
