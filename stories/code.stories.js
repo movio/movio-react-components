@@ -24,7 +24,7 @@ const map = (fn, xs) => xs.map(fn);
 }
 `;
 
-stories.add('base', () => <Code code={exampleCode} />).add('with knobs', () => (
+stories.add('base', () => <Code code={exampleCode} />).add('playground', () => (
   <Code
     code={text('Code', exampleCode)}
     className={select(

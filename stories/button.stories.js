@@ -42,7 +42,7 @@ stories
       </Button>
     </div>
   ))
-  .add('with knobs', () => (
+  .add('playground', () => (
     <Button
       onClick={clickHandler}
       disabled={boolean('Disabled', false)}
