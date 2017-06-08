@@ -28,6 +28,10 @@
   border-radius: var(--border-radius);
   text-decoration: none;
   transition: 0.2s all ease-in-out;
+
+  &:disabled {
+    @apply --disabled-styles;
+  }
 }
 
 .button {

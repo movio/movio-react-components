@@ -7,7 +7,7 @@ import styles from './button.css';
 type ClickHandler = (args?: any) => mixed;
 
 type Props = {
-  className?: string,
+  className: string,
   onClick: ClickHandler,
   disabled?: boolean,
   children?: ReactChildren,
@@ -16,7 +16,7 @@ type Props = {
 };
 
 const Button = ({
-  className,
+  className = '',
   onClick,
   disabled = false,
   children,
@@ -24,16 +24,14 @@ const Button = ({
   loading,
   ...props
 }: Props) => {
-  const btnClasses = classnames(
-    {
-      [styles.base]: true,
-      [styles.button]: !disabled,
-      [styles.disabled]: disabled,
-      [styles.secondary]: secondary,
-      [styles.loading]: loading,
-    },
-    className
-  );
+  const btnClasses = classnames({
+    [className]: !disabled,
+    [styles.base]: true,
+    [styles.button]: !disabled,
+    [styles.disabled]: disabled,
+    [styles.secondary]: !disabled && secondary,
+    [styles.loading]: loading,
+  });
   return (
     <button
       className={btnClasses}
