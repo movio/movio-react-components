@@ -12,7 +12,7 @@ exports[`button-children-text 1`] = `
 
 exports[`button-custom-classname 1`] = `
 <button
-  className="base button test-class"
+  className="test-class base button"
   disabled={false}
   onClick={[Function]}
 >

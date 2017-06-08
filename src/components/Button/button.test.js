@@ -21,7 +21,7 @@ describe('<Button />', () => {
     );
     const wrapper = shallow(component);
     expect(wrapper.prop('className')).toEqual(
-      `${styles.base} ${styles.button} test-class`
+      `test-class ${styles.base} ${styles.button}`
     );
     const tree = renderer.create(component).toJSON();
     expect(tree).toMatchSnapshot('button-custom-classname');

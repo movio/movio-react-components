@@ -25,7 +25,7 @@ const Button = ({
   ...props
 }: Props) => {
   const btnClasses = classnames({
-    [className]: !disabled,
+    [className]: className && !disabled,
     [styles.base]: true,
     [styles.button]: !disabled,
     [styles.disabled]: disabled,
