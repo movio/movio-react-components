@@ -5,13 +5,11 @@ import classnames from 'classnames';
 import styles from './textInput.css';
 
 type Props = {
-  inputType?: string,
+  inputType: string,
   name: string,
   onChange: (value: string, event: SyntheticInputEvent) => void,
   placeholder: string,
-  className?: string,
-  containerClassName?: string,
-  labelClassName?: string,
+  className: string,
   disabled: boolean,
   label?: string,
 };
@@ -35,6 +33,7 @@ class TextInput extends Component {
     inputType: 'text',
     placeholder: '...',
     disabled: false,
+    className: '',
   };
 
   handleChange = (event: SyntheticInputEvent) => {
@@ -46,11 +45,9 @@ class TextInput extends Component {
     });
   };
 
-  renderLabel = (label: string, name: string) => {
-    const { labelClassName } = this.props;
-    const labelClassList = classnames(labelClassName, styles.label);
-    return <label className={labelClassList} htmlFor={name}>{label}</label>;
-  };
+  renderLabel = (label: string, name: string) => (
+    <label className={styles.label} htmlFor={name}>{label}</label>
+  );
 
   render() {
     const {
@@ -58,20 +55,21 @@ class TextInput extends Component {
       inputType,
       placeholder,
       className,
-      containerClassName,
       disabled,
       name,
     } = this.props;
     const { value } = this.state;
-    const classList = classnames(className, styles.input);
-    const containerClassList = classnames(containerClassName, styles.container);
+    const classList = classnames({
+      [className]: className && !disabled,
+      [styles.container]: true,
+    });
 
     return (
-      <fieldset className={containerClassList}>
+      <fieldset className={classList}>
         {label && this.renderLabel(label, name)}
         <input
           id={name}
-          className={classList}
+          className={styles.input}
           type={inputType}
           placeholder={placeholder}
           onChange={e => this.handleChange(e)}

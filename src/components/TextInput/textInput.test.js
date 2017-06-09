@@ -30,9 +30,7 @@ describe('<TextInput />', () => {
       <TextInput name="sample-input" className="test-class" onChange={noop} />
     );
     const wrapper = shallow(component);
-    expect(wrapper.find('input').prop('className')).toEqual(
-      `test-class ${styles.input}`
-    );
+    expect(wrapper.prop('className')).toEqual(`test-class ${styles.container}`);
     const tree = renderer.create(component).toJSON();
     expect(tree).toMatchSnapshot('text-input-custom-classname');
   });

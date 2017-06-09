@@ -18,10 +18,10 @@ exports[`text-input-basic 1`] = `
 
 exports[`text-input-custom-classname 1`] = `
 <fieldset
-  className="container"
+  className="test-class container"
 >
   <input
-    className="test-class input"
+    className="input"
     disabled={false}
     id="sample-input"
     onChange={[Function]}
