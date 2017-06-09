@@ -7,7 +7,7 @@ import styles from './h3.css';
 type Props = {
   children?: ReactChildren,
   className: string,
-  secondary: boolean,
+  secondary?: boolean,
 };
 
 const H3 = ({ className = '', secondary = false, children }: Props) => (
